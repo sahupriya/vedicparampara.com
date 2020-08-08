@@ -17,12 +17,13 @@ if (mysqli_num_rows($result) > 0) {
     while($row = $result->fetch_assoc()) {
 		?>
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-            <div class="box">
-                <?php if($row["image"]== null){ ?>
-				<img src="img/panditavtar.png" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
-				<?php }else{ ?>
-				<img src="<?php echo $base_url."/panel/".$row["image"]; ?>" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
-				<?php } ?>
+            <div class="box"><div class="box-icon">
+				<?php if($row["image"]== null){ ?>
+					<img src="img/panditavtar.png" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
+					<?php }else{ ?>
+					<img src="<?php echo $base_url."/panel/".$row["image"]; ?>" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
+					<?php } ?> 
+				</div>
                 <div class="info">
                     <h4 class="text-center"><?php echo $row["mandali_name"] ?></h4>
                     <p>Price : <?php echo $row["price"] ?></p>

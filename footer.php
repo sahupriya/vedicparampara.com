@@ -4,7 +4,7 @@
     <div class="container animate-box" id="fh5co-footer">
         <div class="row">
             <div class="col-sm-4">
-                <div><a class="nsavbar-brand" href="#">Parampara<span class="navbar-brand2"></span></a></div>
+                <div><a class="nsavbar-brand" href="#">Parampara</a></div>
                 <br>
                 <div class="text-white">Get amazing results working with the best programmers, designers, writers and
                     other top online pros. You can hire us with confidence. Get amazing results working with the best
@@ -17,22 +17,22 @@
                 <table width="100%">
                     <tr>
                         <td><a class="text-white" href="#!">Home</a></td>
-                        <td><a class="text-white" href="#fh5co-pricing">Hosting</a></td>
+                        <td><a class="text-white" href="#fh5co-pricing">Pandit Booking</a></td>
                     </tr>
                     <tr>
                         <td><a class="text-white" href="#!">About us</a></td>
-                        <td><a class="text-white" href="#!">Faq</a></td>
+                        <td><a class="text-white" href="#!">Bhajan Mandal</a></td>
                     </tr>
                     <tr>
-                        <td><a class="text-white" href="#!">Services</a></td>
-                        <td><a class="text-white" href="#!">Cart</a></td>
+                        <td><a class="text-white" href="#!">Faq</a></td>
+                        <td><a class="text-white" href="#!">Bhavya Ayojan</a></td>
                     </tr>
                     <tr>
                         <td><a class="text-white" href="#!">Shop</a></td>
-                        <td><a class="text-white" href="#!">Checkout</a></td>
+                        <td><a class="text-white" href="#!">Virtual Services</a></td>
                     </tr>
                     <tr>
-                        <td><a class="text-white" href="#!">Blog</a></td>
+                        <td><a class="text-white" href="#!">Donation</a></td>
                         <td><a class="text-white" href="#fh5co-contact">Contact</a></td>
                     </tr>
                 </table>
@@ -52,7 +52,26 @@
     </div>
 </div>
 
+<div class="darker">
+    <div class="container" id="fh5co-legal">
+        <div class="row">
+            <div class="col-sm-8 text-white mtext-center">
+                &copy; 2018 <a class="text-gr" href="#">FreeHTML5 <span class="navbar-brand2"> HOST</span></a>. Design
+                by <a href="https://freehtml5.co" target="_blank">FreeHTML5</a>.
+            </div>
+            <div class="col-sm-4 text-white mtext-center">
+                <table>
+                    <tr>
+                        <td><a class="text-white" href="#!">Legal</a></td>
+                        <td><a class="text-white" href="#!">Sitemap</a></td>
+                        <td><a class="text-white" href="#!">Privacy Policy</a></td>
 
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script src="./js/jquery.min.js"></script>

@@ -170,7 +170,7 @@
 
 	</style>
 </head>
-<body id="body">
+<body id="body" style="background-image: url(img/1a.jpg);">
 
   <!--==========================
     Top Bar
@@ -187,6 +187,7 @@
        
       </div>-->
 	  <div class="social-links float-right">
+		<a href="signup-form.php" class="twitter"><i>Signup</i></a>
         <a href="signup-form.php" class="twitter"><img src="img/apk_download1.png" height="30px"></a>
       </div>
     </div>
@@ -211,8 +212,8 @@
             </ul>
           </li>
           <li><a href="pandit-booking.php">Pandit G</a></li>-->
-          <li><a href="#portfolio">Articles</a></li>
-         
+          
+          <li><a href="estore.php">E-Store</a></li>
           <li class="menu-has-children"><a href="#">God</a>
             <ul>
               <li><a href="#">All About Shiv Ji</a></li>
@@ -221,20 +222,19 @@
               <li><a href="#">All About Durga Ji</a></li>
             </ul>
           </li>
-          <li class="menu-has-children"><a href="">Other Services</a>
+          <li class="menu-has-children"><a href="">Services</a>
             <ul>
               <li><a href="pandit-booking.php">Pandit Booking</a></li>
-              <li><a href="estore.php">E-Store</a></li>
               <li><a href="#">Brahman Bhoj</a></li>
               <li><a href="bhajan_mandal.php">Bhajan Mandal</a></li>
 			  <li><a href="temple_donation.php">Temple Donation</a></li>
 			  <li><a href="daily_pandit.php">Daily Pandit</a></li>
-              <li><a href="virtual_services.php">Virtual Services</a></li>
               <li><a href="bhavya_ayojan.php">Bhavya Ayojan</a></li>
 			  <li><a href="#">Darshan Booking</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+		  <li><a href="virtual_services.php">Virtual Services</a></li>
+          <li><a href="contact.php">Contact</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

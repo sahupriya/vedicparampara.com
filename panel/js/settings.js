@@ -1,9 +1,11 @@
 function get_theme_active(val)
 {
+   
+    var panel1= "http://localhost/vedicparampara.com/panel/js/theme_active.php";
 	var urli = window.location.href;
     $.ajax({
         type:"post",
-        url:"http://prachiinfra.in/steel/js/theme_active.php",
+        url:panel1,
         data:"val="+val,
         success:function(data)
 		{
@@ -11,17 +13,18 @@ function get_theme_active(val)
         }
     });
 }
+var panel= "http://localhost/vedicparampara.com/panel";
 var site_settings = '<div class="ts-button">'
         +'<span class="fa fa-cogs fa-spin"></span>'
     +'</div>'
     +'<div class="ts-body">'
 	    +'<div class="ts-title">Change Theme Color</div>'
         +'<div class="ts-themes">'
-            +'<a onclick="get_theme_active(1);"><img src="http://prachiinfra.in/steel/img/themes/default.jpg"/></a>'
-            +'<a onclick="get_theme_active(2);"><img src="http://prachiinfra.in/steel/img/themes/brown.jpg"/></a>'
-            +'<a onclick="get_theme_active(3);"><img src="http://prachiinfra.in/steel/img/themes/blue.jpg"/></a>'
-            +'<a onclick="get_theme_active(4);"><img src="http://prachiinfra.in/steel/img/themes/light.jpg"/></a>'
-            +'<a onclick="get_theme_active(5);"><img src="http://prachiinfra.in/steel/img/themes/black.jpg"/></a>'
+            +'<a onclick="get_theme_active(1);"><img src="'+ panel +'/img/themes/default.jpg"/></a>'
+            +'<a onclick="get_theme_active(2);"><img src="'+ panel +'/img/themes/brown.jpg"/></a>'
+            +'<a onclick="get_theme_active(3);"><img src="'+ panel +'/img/themes/blue.jpg"/></a>'
+            +'<a onclick="get_theme_active(4);"><img src="'+ panel +'/img/themes/light.jpg"/></a>'
+            +'<a onclick="get_theme_active(5);"><img src="'+ panel +'/img/themes/black.jpg"/></a>'
         +'</div>'
 		// +'<div class="ts-title">Layout</div>'
         // +'<div class="ts-row">'
