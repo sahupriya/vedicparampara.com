@@ -235,7 +235,7 @@
                     <a href="map.php" class="btn btn-danger">Locate Now</a>
                 </div>
             </div>
-            </div>
+        </div>
 
 <br><br>
    <div class="container-fluid" id="fh5co-features">
@@ -246,7 +246,7 @@
         <br>
         <div class="row">
             <div class="col-lg-12 animate-box" data-animate-effect="fadeIn">
-                <p class="text-center testi2">Astrology as a predictive science facilitates fortune tellers and astrologers to dive deep into the study of a person’s unique traits right from the moment he or she is born, the native’s strengths and weaknesses and life ahead, etc. The zodiac is the belt of constellations through which the Sun, the Moon and the planets transit across the sky. There are many passionate believers who feel that the future can indeed be predicted by studying the position of the Sun, the Moon and the planets’ position at the time of birth. There are various popular schools of astrology worldwide and significant among these are – Western, Indian, Chinese and Egyptian, etc. The astrological chart which holds an all-important place in astrological readings is of course, what we commonly refer to as the ‘Horoscope’. This acts as a guide to analyzing one’s future, likes, dislikes and events that are likely to occur in one’s life as per interpretations available in astrology.</p
+                <p class="text-center testi2">Astrology as a predictive science facilitates fortune tellers and astrologers to dive deep into the study of a person’s unique traits right from the moment he or she is born, the native’s strengths and weaknesses and life ahead, etc. The zodiac is the belt of constellations through which the Sun, the Moon and the planets transit across the sky. There are many passionate believers who feel that the future can indeed be predicted by studying the position of the Sun, the Moon and the planets’ position at the time of birth. There are various popular schools of astrology worldwide and significant among these are – Western, Indian, Chinese and Egyptian, etc. The astrological chart which holds an all-important place in astrological readings is of course, what we commonly refer to as the ‘Horoscope’. This acts as a guide to analyzing one’s future, likes, dislikes and events that are likely to occur in one’s life as per interpretations available in astrology.</p>
                 </div>
 
             </div>
