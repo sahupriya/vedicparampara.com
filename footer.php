@@ -16,24 +16,28 @@
                 <br>
                 <table width="100%">
                     <tr>
-                        <td><a class="text-white" href="#!">Home</a></td>
-                        <td><a class="text-white" href="#fh5co-pricing">Pandit Booking</a></td>
+                        <td><a class="text-white" href="index.php">Home</a></td>
+                        <td><a class="text-white" href="pandit-booking.php">Pandit Booking</a></td>
                     </tr>
                     <tr>
-                        <td><a class="text-white" href="#!">About us</a></td>
-                        <td><a class="text-white" href="#!">Bhajan Mandal</a></td>
+                        <td><a class="text-white" href="#">About us</a></td>
+                        <td><a class="text-white" href="bhajan_mandal.php">Bhajan Mandal</a></td>
                     </tr>
                     <tr>
-                        <td><a class="text-white" href="#!">Faq</a></td>
-                        <td><a class="text-white" href="#!">Bhavya Ayojan</a></td>
+                        <td><a class="text-white" href="#fh5co-pricing">Faq</a></td>
+                        <td><a class="text-white" href="bhavya_ayojan.php">Bhavya Ayojan</a></td>
                     </tr>
                     <tr>
-                        <td><a class="text-white" href="#!">Shop</a></td>
-                        <td><a class="text-white" href="#!">Virtual Services</a></td>
+                        <td><a class="text-white" href="estore.php">Shop</a></td>
+                        <td><a class="text-white" href="virtual_services.php">Virtual Services</a></td>
                     </tr>
                     <tr>
-                        <td><a class="text-white" href="#!">Donation</a></td>
-                        <td><a class="text-white" href="#fh5co-contact">Contact</a></td>
+                        <td><a class="text-white" href="temple_donation">Donation</a></td>
+                        <td><a class="text-white" href="contact.php">Contact</a></td>
+                    </tr>
+					<tr>
+                        <td><a class="text-white" href="#">Private Policy</a></td>
+                        <td><a class="text-white" href="#">Term & Condition</a></td>
                     </tr>
                 </table>
             </div>
@@ -56,15 +60,12 @@
     <div class="container" id="fh5co-legal">
         <div class="row">
             <div class="col-sm-8 text-white mtext-center">
-                &copy; 2018 <a class="text-gr" href="#">FreeHTML5 <span class="navbar-brand2"> HOST</span></a>. Design
-                by <a href="https://freehtml5.co" target="_blank">FreeHTML5</a>.
+             © 2020 copyright  <a class="text-gr" href="#"><span class="navbar-brand2">  All Rights Reserved</span></a>
             </div>
             <div class="col-sm-4 text-white mtext-center">
                 <table>
-                    <tr>
-                        <td><a class="text-white" href="#!">Legal</a></td>
-                        <td><a class="text-white" href="#!">Sitemap</a></td>
-                        <td><a class="text-white" href="#!">Privacy Policy</a></td>
+                    <tr>   
+                Design by <a href="http://deificindia.com/" target="_blank">Deific India Infosolution Pvt Ltd, </a>.
 
                     </tr>
                 </table>
