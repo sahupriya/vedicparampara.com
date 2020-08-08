@@ -1,8 +1,27 @@
 <?php include 'header.php';?>
+<?php 
+include'config.php';
+if(isset($_POST['submit']))
+{
+	$name=$_POST['username'];
+	$mobile=$_POST['mobile'];
+	$email=$_POST['email'];
+	$password=$_POST['password'];
+	$otp = rand(0000,9999);
+	$insert= "INSERT INTO user (username,mobile,email,logitude,lattitude,password,otp,otp_verified,type,status) VALUES ('$name','$mobile','$email',0.1,0.1,
+	'$password','$otp','YES','USER',1)";
+	mysqli_query($conn,$insert);
+	?>
+	<script>
+	alert('your message send successfully');
+	</script>
+<?php	
+}
+?>
 
 <div class="container">
 
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+    <form class="well form-horizontal" action="" method="post"  id="contact_form">
 <fieldset>
 
 <!-- Form Name -->
@@ -60,7 +79,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="user_name" placeholder="Username" class="form-control"  type="text">
+  <input  name="username" placeholder="Username" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -72,7 +91,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="user_password" placeholder="Password" class="form-control"  type="password">
+  <input name="password" placeholder="Password" class="form-control"  type="password">
     </div>
   </div>
 </div>
@@ -108,7 +127,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  <input name="contact_no" placeholder="(639)" class="form-control" type="text">
+  <input name="mobile" placeholder="(639)" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -122,7 +141,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4"><br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
   </div>
 </div>
 

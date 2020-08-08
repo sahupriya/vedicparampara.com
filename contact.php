@@ -1,4 +1,20 @@
 <?php include 'header.php';?>
+<?php 
+include'config.php';
+if(isset($_POST['submit']))
+{
+	$name=$_POST['name'];
+	$email=$_POST['email'];
+	$message=$_POST['message'];
+	$insert= "INSERT INTO contact (name, email, message) VALUES ('$name', '$email', '$message')";
+	mysqli_query($conn,$insert);
+	?>
+	<script>
+	alert('your message send successfully');
+	</script>
+<?php	
+}
+?>
 
 
 <div class="smoke">
@@ -8,20 +24,21 @@
         <div class="row animate-box">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <form>
+                <form action="" method="post">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Name</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name" name="name">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Email</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email">
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email" name="email">
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput2">Email</label>
-                        <textarea class="form-control" rows="5" placeholder="Msg Here"></textarea>
+                        <label for="formGroupExampleInput2">Message</label>
+                        <textarea class="form-control" rows="5" placeholder="Msg Here" name="message"></textarea>
                     </div>
-                    <button class="btn btn-success">Send</button>
+					<input type="submit" class="btn btn-success" value="Send" name="submit">
+                   
                 </form>
             </div>
         </div>
