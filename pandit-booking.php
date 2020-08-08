@@ -21,9 +21,9 @@ if (mysqli_num_rows($result) > 0) {
             <div class="box">
 				<div class="box-icon">
 				<?php if($row["image"]== null){ ?>
-					<img src="img/panditavtar.png" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
+					<img src="img/panditavtar.png" class="img-responsive" style="margin-left:0px;height:80px;width:100px;">
 					<?php }else{ ?>
-					<img src="<?php echo $base_url."/panel/".$row["image"]; ?>" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
+					<img src="<?php echo $base_url."/panel/".$row["image"]; ?>" class="img-responsive" style="margin-left:0px;height:80px;width:100px;">
 					<?php } ?> 
 				</div>
                 <div class="info">
