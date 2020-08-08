@@ -1,7 +1,7 @@
 <!--footer-->
 
 <div class="dark">
-    <div class="container animate-box" id="fh5co-footer">
+    <div class="container animate-box fadeInUp animated-fast" id="fh5co-footer">
         <div class="row">
             <div class="col-sm-4">
                 <div><a class="nsavbar-brand" href="#">Parampara</a></div>
@@ -12,10 +12,10 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="icons">Explore Our Pages</h3></div>
+                <div class="icons">Explore Our Pages</div>
                 <br>
                 <table width="100%">
-                    <tr>
+                    <tbody><tr>
                         <td><a class="text-white" href="index.php">Home</a></td>
                         <td><a class="text-white" href="pandit-booking.php">Pandit Booking</a></td>
                     </tr>
@@ -37,12 +37,12 @@
                     </tr>
 					<tr>
                         <td><a class="text-white" href="#">Private Policy</a></td>
-                        <td><a class="text-white" href="#">Term & Condition</a></td>
+                        <td><a class="text-white" href="#">Term &amp; Condition</a></td>
                     </tr>
-                </table>
+                </tbody></table>
             </div>
             <div class="col-sm-4">
-                <div class="icons">Get in Touch</h3></div>
+                <div class="icons">Get in Touch</div>
                 <br>
                 <div>
                     <i class="fa fa-facebook-square" aria-hidden="true"></i>
