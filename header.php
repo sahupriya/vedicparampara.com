@@ -203,24 +203,16 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="<?php echo $base_url; ?>">Home</a></li>
-          <!-- <li class="menu-has-children"><a href="pandit-booking.php">Book Pooja</a>
-            <ul>
-              <li><a href="pandit-booking.php">Hindu Pooja</a></li>
-              <li><a href="#">Jain Pooja</a></li>
-            
-            </ul>
-          </li>
-          <li><a href="pandit-booking.php">Pandit G</a></li>-->
-          
+          <li><a href="horoscope.php">Horoscope</a></li>
           <li><a href="estore.php">E-Store</a></li>
-          <li class="menu-has-children"><a href="#">God</a>
+          <!--<li class="menu-has-children"><a href="#">God</a>
             <ul>
               <li><a href="#">All About Shiv Ji</a></li>
               <li><a href="#">All About Laxmi Ji</a></li>
               <li><a href="#">All About Vishnu Ji</a></li>
               <li><a href="#">All About Durga Ji</a></li>
             </ul>
-          </li>
+          </li>-->
           <li class="menu-has-children"><a href="">Services</a>
             <ul>
               <li><a href="pandit-booking.php">Pandit Booking</a></li>

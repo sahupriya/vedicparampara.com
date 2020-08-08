@@ -218,7 +218,7 @@
                 <div class="price-box-dark animate-box ask">
                     <h3><img src="img/pandit/horoscope.png" height="100px" width="100px"></h3>
                      <h5 class="text-gr"><b>Daily Horoscope</b></h5>
-                    <button class="btn btn-danger">Horoscope</button>
+                    <a href="horoscope.php" class="btn btn-danger">Horoscope</a>
                 </div>
             </div> 
              <div class="col-sm-4">
@@ -232,7 +232,7 @@
                 <div class="price-box-dark animate-box ask">
                     <h3><img src="img/pandit/locater.png" height="100px" width="100px"></h3>
                     <h5 class="text-gr"><b>Temple Locator</b></h5>
-                    <button class="btn btn-danger">Locate Now</button>
+                    <a href="map.php" class="btn btn-danger">Locate Now</a>
                 </div>
             </div>
             </div>
