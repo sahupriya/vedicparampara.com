@@ -4,7 +4,7 @@ $servername = "localhost";
 //$password = "1234";
 $username = "root";
 $password = "";
-$db="parampara";
+$db="vedicpar_parampara";
 
 // Create connection
 $conn =mysqli_connect($servername, $username, $password,$db);
