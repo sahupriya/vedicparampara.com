@@ -19,9 +19,9 @@ if (mysqli_num_rows($result) > 0) {
             <div class="box">
                 <div class="box-icon">
 				<?php if($row["image"]== null){ ?>
-				<img src="img/panditavtar.png" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
+				<img src="img/panditavtar.png"  class="img-responsive" style="margin-left:0px;height:80px;width:100px;">
 				<?php }else{ ?>
-				<img src="<?php echo $base_url."/panel/".$row["image"] ?>" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
+				<img src="<?php echo $base_url."/panel/".$row["image"] ?>" class="img-responsive" style="margin-left:0px;height:80px;width:100px;">
 				<?php } ?>
                     
                 </div>
@@ -30,12 +30,11 @@ if (mysqli_num_rows($result) > 0) {
                     <h4 class="text-center"><?php echo $row["name"]; ?></h4>
                     <p>Price : <?php echo $row["price"] ?></p>
 					<p>Description : <?php echo substr($row['description'],0,3);?><span id="dot">...</span></p>
-<!--					 <button  data-toggle="modal" data-target="#read<?php echo $row["product_id"];?>" >Read more</button>-->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo $row["product_id"];?>">
   read more
 </button>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal<?php echo $row["product_id"];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal<?php echo $row["product_id"];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" style="padding:4px; background:#f68819;text-align: center;" >
