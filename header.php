@@ -26,6 +26,7 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link rel="icon" href="http://localhost/vedicparampara.com/img/logo.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="./css/animate.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
