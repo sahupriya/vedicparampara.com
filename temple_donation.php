@@ -35,10 +35,10 @@ if (mysqli_num_rows($result) > 0) {
       <div class="modal-header" style="padding:4px; background:#f68819;text-align: center;" >
         <h5 class="modal-title" id="exampleModalLabel"><span ><?php echo $row["donation_cause"]; ?></span></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" style="padding-right: 10px;">&times;</span>
         </button>
       </div>
-      <div class="modal-body" align="center">
+      <div class="modal-body" align="center" style=" background: rgba(0,0,0,.125);">
         <div ><?php echo ($row['donation_discription']);?></div>
       </div>
       

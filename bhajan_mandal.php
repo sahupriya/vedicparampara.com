@@ -27,7 +27,27 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="info">
                     <h4 class="text-center"><?php echo $row["mandali_name"] ?></h4>
                     <p>Price : <?php echo $row["price"] ?></p>
-					<p>Description : <?php echo $row["description"] ?></p>
+					<p>Description : <?php echo substr($row['description'],0,55);?><span id="dot">...</span></p>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo $row["mandal_id"];?>">
+                      read more
+                  </button>
+				  				  <!-- Modal -->
+<div class="modal fade" id="exampleModal<?php echo $row["mandal_id"];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="padding:4px; background:#f68819;text-align: center;" >
+        <h5 class="modal-title" id="exampleModalLabel"><span ><?php echo $row["mandali_name"]; ?></span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="padding-right: 10px;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" align="center" style=" background: rgba(0,0,0,.125);">
+        <div ><?php echo ($row['description']);?></div>
+      </div>
+      
+    </div>
+  </div>
+</div>
                     
                     <a href="#" class="btn">Book Now</a>
                 </div>

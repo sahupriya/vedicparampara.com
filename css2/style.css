@@ -76,7 +76,7 @@ h6 {
 --------------------------------------------------------------*/
 
 #topbar {
-  background: #fbab19;
+  background:#f68819;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
   font-size: 14px;
@@ -128,7 +128,7 @@ h6 {
   height: 84px;
   transition: all 0.5s;
   z-index: 997;
-  background:#f68819;
+  background:#7e2726;
   box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
 }
 

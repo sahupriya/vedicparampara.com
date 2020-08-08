@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="info">
                     <h4 class="text-center"><?php echo $row["ayojan_name"] ?></h4>
 					<p>Price : <?php echo $row["price"] ?></p>
-					<p>Description : <?php echo substr($row['description'],0,3);?><span id="dot">...</span></p>
+					<p>Description : <?php echo substr($row['description'],0,55);?><span id="dot">...</span></p>
 								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo $row["ayojan_id"];?>">
                       read more
                   </button>
