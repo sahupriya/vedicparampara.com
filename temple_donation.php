@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
                 <div class="info">
                     <h4 class="text-center"><?php echo $row["donation_cause"] ?></h4>
-					<p>Description : <?php echo substr($row['donation_discription'],0,3);?><span id="dot">...</span></p>
+					<p>Description : <?php echo substr($row['donation_discription'],0,55);?><span id="dot">...</span></p>
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo $row["donation_id"];?>">
   read more
 </button>
@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
           <span aria-hidden="true" style="padding-right: 10px;">&times;</span>
         </button>
       </div>
-      <div class="modal-body" align="center" style=" background: rgba(0,0,0,.125);">
+      <div class="modal-body" align="center" style=" background:#ffca73;">
         <div ><?php echo ($row['donation_discription']);?></div>
       </div>
       

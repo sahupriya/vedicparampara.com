@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
           <span aria-hidden="true" style="padding-right: 10px;">&times;</span>
         </button>
       </div>
-      <div class="modal-body" align="center" style=" background:background:#ffca73;">
+      <div class="modal-body" align="center" style="background:#ffca73;">
         <div ><?php echo ($row['description']);?></div>
       </div>
       

@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
             <div class="box">
                 <div class="box-icon">
 				<?php if($row["image"]== null){ ?>
-				<img src="img/panditavtar.png"  class="img-responsive" style="margin-left:0px;height:80px;width:100px;">
+				<img src="img/my-product.png"  class="img-responsive" style="margin-left:0px;height:80px;width:100px;">
 				<?php }else{ ?>
 				<img src="<?php echo $base_url."/panel/".$row["image"] ?>" class="img-responsive" style="margin-left:0px;height:80px;width:100px;">
 				<?php } ?>
@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="info">
                     <h4 class="text-center"><?php echo $row["name"]; ?></h4>
                     <p>Price : <?php echo $row["price"] ?></p>
-					<p>Description : <?php echo substr($row['description'],0,3);?><span id="dot">...</span></p>
+					<p>Description : <?php echo substr($row['description'],0,55);?><span id="dot">...</span></p>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo $row["product_id"];?>">
   read more
 </button>
@@ -43,7 +43,7 @@ if (mysqli_num_rows($result) > 0) {
           <span aria-hidden="true" style="padding-right: 10px;">&times;</span>
         </button>
       </div>
-      <div class="modal-body" align="center" style=" background: rgba(0,0,0,.125);">
+      <div class="modal-body" align="center" style=" background:#ffca73;">
         <div ><?php echo ($row['description']);?></div>
       </div>
       
