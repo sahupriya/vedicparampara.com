@@ -1823,6 +1823,22 @@ public function ayojan_submit()
         $this->load->view('donation',$do);
         $this->load->view('include/footer');
     }
+	public function enqueries()
+    {
+        
+        $auth_type = $this->session->userdata('auth_type');
+        $donation_id = $this->input->get('d');
+        $do['data'] = $this->db->where('id',$donation_id)->get('contact')->row_array();
+        $do['enqueries'] = $this->db->order_by('id','DESC')->get('contact')->result();
+        $do['form'] = ($auth_type == 'admin')?1:0;
+        $do['list'] = ($auth_type == 'admin')?1:0;
+       
+        
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('enqueries',$do);
+        $this->load->view('include/footer');
+    }
     
     public function assign_pandit()
     {
@@ -1924,23 +1940,38 @@ public function ayojan_submit()
     }  
     
     
-    public function donation_delete()
+    public function dontion_delete()
     {
         $auth_type = $this->session->userdata('auth_type');
         $donation_id = $this->input->get('d');
         $d = $this->db->where('donation_id',$donation_id)->get('donation');
         if($d->num_rows() > 0)
         {
-            $oldData = $d->row_array();
             $this->db->where('donation_id',$donation_id)->delete('donation');
-            unlink($oldData['image']);
             $this->session->set_flashdata('err_msg', 'donation Deleted Successfully');
             redirect($this->controller."donation"); 
         }
         else
         {
-            $this->session->set_flashdata('err_msg', 'Image No Found');
+            $this->session->set_flashdata('err_msg', 'Donation No Found');
             redirect($this->controller."donation");
+        }
+    }
+	public function contact_delete()
+    {
+        $auth_type = $this->session->userdata('auth_type');
+        $donation_id = $this->input->get('d');
+        $d = $this->db->where('id',$donation_id)->get('contact');
+        if($d->num_rows() > 0)
+        {
+            $this->db->where('id',$donation_id)->delete('contact');
+            $this->session->set_flashdata('err_msg', 'Data Deleted Successfully');
+            redirect($this->controller."enqueries"); 
+        }
+        else
+        {
+            $this->session->set_flashdata('err_msg', 'Data not Found');
+            redirect($this->controller."enqueries");
         }
     }
     

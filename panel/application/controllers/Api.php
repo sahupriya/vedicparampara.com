@@ -39,7 +39,7 @@ class Api extends CI_Controller
         {
             if($_FILES['image']['name'])
             {
-                $image = "uploads/user/".rand(0000,9999).basename($_FILES["image"]["name"]);
+                $image = "uploads/user/".rand(1000,9999).basename($_FILES["image"]["name"]);
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $image))
                 {
                     $_REQUEST['image'] = $image;
@@ -48,7 +48,7 @@ class Api extends CI_Controller
             
             if($_FILES['aadhar_image']['name'])
             {
-                $aadhar_image = "uploads/user/aadhar".rand(0000,9999).basename($_FILES["aadhar_image"]["name"]);
+                $aadhar_image = "uploads/user/aadhar".rand(1000,9999).basename($_FILES["aadhar_image"]["name"]);
                 if(move_uploaded_file($_FILES['aadhar_image']['tmp_name'], $aadhar_image))
                 {
                     $_REQUEST['aadhar_image'] = $aadhar_image;
@@ -74,7 +74,7 @@ class Api extends CI_Controller
                     header('Content-Type: application/json');
                     echo json_encode($json);
         }else{
-                $otp = rand(0000,9999);
+                $otp = rand(1000,9999);
                 $message = "Welcome to PARAMPARA. Please Enter OTP : $otp, To Verify Your Profile and Get Startes. Regards PARAMPARA.";
                 $sms_responce = $this->base->send_sms($_REQUEST['mobile'],$message);
                 // $this->db->insert("test",array('data'=>json_encode($sms_responce),'data1'=>$_REQUEST['mobile']));
@@ -136,7 +136,7 @@ class Api extends CI_Controller
         {
             if($_FILES['image']['name'])
             {
-                $image = "uploads/user/".rand(0000,9999).basename($_FILES["image"]["name"]);
+                $image = "uploads/user/".rand(1000,9999).basename($_FILES["image"]["name"]);
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $image))
                 {
                     $_REQUEST['image'] = $image;
@@ -145,7 +145,7 @@ class Api extends CI_Controller
             
             if($_FILES['aadhar_image']['name'])
             {
-                $aadhar_image = "uploads/user/aadhar".rand(0000,9999).basename($_FILES["aadhar_image"]["name"]);
+                $aadhar_image = "uploads/user/aadhar".rand(1000,9999).basename($_FILES["aadhar_image"]["name"]);
                 if(move_uploaded_file($_FILES['aadhar_image']['tmp_name'], $aadhar_image))
                     $_REQUEST['aadhar_image'] = $aadhar_image;
                 }
@@ -169,7 +169,7 @@ class Api extends CI_Controller
                 header('Content-Type: application/json');
                 echo json_encode($json);
         }else{
-                $otp = rand(0000,9999);
+                $otp = rand(1000,9999);
                 $message = "Welcome to PARAMPARA. Please Enter OTP : $otp, To Verify Your Profile and Get Startes. Regards PARAMPARA.";
                 $sms_responce = $this->base->send_sms($_REQUEST['mobile'],$message);
                 // $this->db->insert("test",array('data'=>json_encode($sms_responce),'data1'=>$_REQUEST['mobile']));
@@ -233,7 +233,7 @@ class Api extends CI_Controller
         {
             if($_FILES['image']['name'])
             {
-                $image = "uploads/user/".rand(0000,9999).basename($_FILES["image"]["name"]);
+                $image = "uploads/user/".rand(1000,9999).basename($_FILES["image"]["name"]);
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $image))
                 {
                     $_REQUEST['image'] = $image;
@@ -242,7 +242,7 @@ class Api extends CI_Controller
             
             if($_FILES['idProof']['name'])
             {
-                $aadhar_image = "uploads/user/aadhar".rand(0000,9999).basename($_FILES["idProof"]["name"]);
+                $aadhar_image = "uploads/user/aadhar".rand(1000,9999).basename($_FILES["idProof"]["name"]);
                 if(move_uploaded_file($_FILES['idProof']['tmp_name'], $aadhar_image))
                 {
                     $_REQUEST['aadhar_image'] = $aadhar_image;
@@ -266,7 +266,7 @@ class Api extends CI_Controller
                     header('Content-Type: application/json');
                     echo json_encode($json);
              }else{
-                $otp = rand(0000,9999);
+                $otp = rand(1000,9999);
                 $message = "Welcome to PARAMPARA. Please Enter OTP : $otp, To Verify Your Profile and Get Startes. Regards PARAMPARA.";
                 $sms_responce = $this->base->send_sms($_REQUEST['contact'],$message);
                 // $this->db->insert("test",array('data'=>json_encode($sms_responce),'data1'=>$_REQUEST['mobile']));
@@ -320,7 +320,7 @@ class Api extends CI_Controller
         {
             $data = $q->row_array();
             
-            $otp = rand(0000,9999);
+            $otp = rand(1000,9999);
             $message = "Welcome to PARAMPARA. Please Enter OTP : $otp, To Verify Your Profile and Get Startes. Regards PARAMPARA.";
             $sms_responce = $this->base->send_sms($mobile,$message);
             // echo "<pre>";print_r($sms_responce);die;
@@ -362,7 +362,7 @@ class Api extends CI_Controller
         {
             $data = $q->row_array();
             
-            $otp = rand(0000,9999);
+            $otp = rand(1000,9999);
             $message = "Welcome to PARAMPARA. Please Enter OTP : $otp, To Verify Your Profile and Get Startes. Regards PARAMPARA.";
             $sms_responce = $this->base->send_sms($mobile,$message);
             // echo "<pre>";print_r($sms_responce);die;
@@ -501,7 +501,7 @@ class Api extends CI_Controller
         {
             if($_FILES['image']['name'])
             {
-                $image = "uploads/user/".rand(0000,9999).basename($_FILES["image"]["name"]);
+                $image = "uploads/user/".rand(1000,9999).basename($_FILES["image"]["name"]);
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $image))
                 {
                     $_REQUEST['image'] = $image;
@@ -510,7 +510,7 @@ class Api extends CI_Controller
             
             if($_FILES['aadhar_image']['name'])
             {
-                $aadhar_image = "uploads/user/aadhar".rand(0000,9999).basename($_FILES["aadhar_image"]["name"]);
+                $aadhar_image = "uploads/user/aadhar".rand(1000,9999).basename($_FILES["aadhar_image"]["name"]);
                 if(move_uploaded_file($_FILES['aadhar_image']['tmp_name'], $aadhar_image))
                 {
                     $_REQUEST['aadhar_image'] = $aadhar_image;
@@ -2176,7 +2176,7 @@ class Api extends CI_Controller
 
         if($_FILES['image']['name'])
         {
-            $image = "uploads/product/".rand(0000,9999).basename($_FILES["image"]["name"]);
+            $image = "uploads/product/".rand(1000,9999).basename($_FILES["image"]["name"]);
             if(move_uploaded_file($_FILES['image']['tmp_name'], $image))
             {
                 $_REQUEST['image'] = $image;

@@ -32,7 +32,7 @@
                         <td><a class="text-white" href="virtual_services.php">Virtual Services</a></td>
                     </tr>
                     <tr>
-                        <td><a class="text-white" href="temple_donation">Donation</a></td>
+                        <td><a class="text-white" href="temple_donation.php">Donation</a></td>
                         <td><a class="text-white" href="contact.php">Contact</a></td>
                     </tr>
 					<tr>
