@@ -317,7 +317,7 @@
                                         <div class="text-center"><i class="fa fa-caret-down down-ar"></i></div>
                                         <div class="text-center">
                                             <h4 class="text-org">Someone DOE</h4>
-                                            <h5 class="text-dark">UI Designer</h5></div>
+                                          
                                     </div>
                                 </div>
                             </blockquote>
@@ -326,14 +326,14 @@
 
                     <ol class="carousel-indicators">
                         <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive "
-                                                                                                src="img/customer1.jpg"
+                                                                                                src="img/images.png"
                                                                                                 alt="">
                         </li>
                         <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive"
-                                                                                 src="img/customer2.jpg" alt="">
+                                                                                 src="img/un.png" alt="">
                         </li>
                         <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive"
-                                                                                 src="img/customer3.jpg" alt="">
+                                                                                 src="img/male.png" alt="">
                         </li>
                     </ol>
                     </a>

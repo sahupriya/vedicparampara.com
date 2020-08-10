@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 	$email=$_POST['email'];
 	$message=$_POST['message'];
 	$insert= "INSERT INTO contact (name, email, message) VALUES ('$name', '$email', '$message')";
-	mysqli_query($conn,$insert);
+	$qyery=mysqli_query($conn,$insert);
 	?>
 	<script>
 	alert('your message send successfully');
