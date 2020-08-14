@@ -45,14 +45,14 @@ color: #999;
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4><?php echo $row["name"]; ?></h4>
-                        <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
-                        </i><?php echo $row["price"]; ?> </cite></small>
+                        <small><cite title="San Francisco, USA">
+						Price : <?php echo $row["price"]; ?> </cite></small>
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i><?php echo $row["gst_no"]; ?>
+                            Gst No : <?php echo $row["gst_no"]; ?>
                             <br />
-                            <i class="glyphicon glyphicon-globe"></i><?php echo $row["delivery_charge"]; ?>
+                            Delivery Charge : <?php echo $row["delivery_charge"]; ?>
                             <br />
-                            <i class="glyphicon glyphicon-gift"></i><?php echo $row["qty"]; ?><?php echo $row["qty_type"]; ?>
+                            Quentity : <?php echo $row["qty"]; ?><?php echo $row["qty_type"]; ?>
 						</p>
                         <p><b>Description : </b><?php echo $row["description"]; ?></p>
 						<p><b>Total : </b><?php 
