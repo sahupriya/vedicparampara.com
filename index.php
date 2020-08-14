@@ -287,7 +287,7 @@
                                         <div class="text-center"><i class="fa fa-caret-down down-ar"></i></div>
                                         <div class="text-center">
                                             <h4 class="text-org">Someone DOE</h4>
-                                            <h5 class="text-dark">UI Designer</h5></div>
+                                            
                                     </div>
                                 </div>
                             </blockquote>
@@ -302,7 +302,7 @@
                                         <div class="text-center"><i class="fa fa-caret-down down-ar"></i></div>
                                         <div class="text-center">
                                             <h4 class="text-org">Someone DOE</h4>
-                                            <h5 class="text-dark">UI Designer</h5></div>
+                                      
                                     </div>
                                 </div>
                             </blockquote>

@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 	$email=$_POST['email'];
 	$message=$_POST['message'];
 	$insert= "INSERT INTO contact (name, email, message) VALUES ('$name', '$email', '$message')";
-	$qyery=mysqli_query($conn,$insert);
+	$query=mysqli_query($conn,$insert);
 	if($query){
 		
 	$to = $email;
@@ -49,22 +49,16 @@ if(isset($_POST['submit']))
 <?php
     }else{
      ?>
+	 
     <script>
         alert("Unable to send message!");
     </script>
 <?php   
     }
-    
-}
-
-	}
+  }
+ }
 	?>
-	<script>
-	alert('your message send successfully');
-	</script>
-<?php	
-}
-?>
+
 
 
 <div class="smoke">
