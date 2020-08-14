@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html><?php $base_url="http://localhost/vedicparampara.com" ; ?>
 <html lang="en" class="no-js">
 <head>
@@ -170,7 +173,7 @@
 
 	</style>
 </head>
-<body id="body" style="background-image: url(img/1a.jpg);">
+<body id="body" >
 
   <!--==========================
     Top Bar
@@ -188,6 +191,14 @@
       </div>-->
 	  <div class="social-links float-right">
 		<a href="signup-form.php" class="twitter"><i>Signup</i></a>
+		<?php 
+		//var_dump($_SESSION);
+		if(isset($_SESSION['mobile'])){
+		?>
+		<a href="plogout.php">Log Out</a>
+		<?php
+		} ?>
+		
         <a href="signup-form.php" class="twitter"><img src="img/apk_download1.png" height="30px"></a>
       </div>
     </div>
