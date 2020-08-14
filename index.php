@@ -1,4 +1,6 @@
-<?php include 'header.php';?>
+<?php include 'header.php';
+unset($_SESSION['transection_id']);
+?>
 
 
 

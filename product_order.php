@@ -68,7 +68,7 @@ color: #999;
 
 <div class="container">
 	
-    <form class="well form-horizontal" action="" method="post"  id="contact_form">
+    <form class="well form-horizontal" action="confirm.php" method="post"  id="contact_form">
 	<?php 
 		$sql1 = "SELECT * from commission" ;
 		$result1 = mysqli_query($conn,$sql1);
@@ -112,7 +112,7 @@ color: #999;
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="address" placeholder="Username" class="form-control"  type="text">
+  <input  name="address" placeholder="Address" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
@@ -120,8 +120,8 @@ color: #999;
   <label class="col-md-4 control-label" >State</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="state" placeholder="Password" class="form-control"  type="password">
+  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+  <input name="state" placeholder="state" class="form-control"  type="state" required="">
     </div>
   </div>
 </div>
@@ -132,8 +132,8 @@ color: #999;
   <label class="col-md-4 control-label" >City</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="city" placeholder="Confirm Password" class="form-control"  type="password">
+  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <input name="city" placeholder="City" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
@@ -143,8 +143,8 @@ color: #999;
   <label class="col-md-4 control-label">Pin Code</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  <input name="pincode" placeholder="(639)" class="form-control" type="text">
+        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+  <input name="pincode" placeholder="(639)" class="form-control" type="number" required="" >
     </div>
   </div>
 </div>
@@ -153,7 +153,7 @@ color: #999;
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-		<select id="payment_mode" class="form-control" style="height: 38px;">
+		<select id="payment_mode" name="payment" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
 		  <option value="online">Online</option>
