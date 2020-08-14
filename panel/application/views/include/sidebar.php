@@ -183,6 +183,9 @@ function get_notification()
 			<li id="donation-list">
 				<a href="<?php echo site_url('site/donationlist'); ?>"><span class="fa fa-book"></span> <span class="xn-text">Donations Listing</span></a>
 			</li>
+			<li id="enqueries">
+				<a href="<?php echo site_url('site/enqueries'); ?>"><span class="fa fa-group"></span> <span class="xn-text">Enqueries</span></a>
+			</li>
 			<li id="terms">
 				<a href="<?php echo site_url('site/terms'); ?>"><span class="fa fa-group"></span> <span class="xn-text">Terms and Conditions</span></a>
 			</li>

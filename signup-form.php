@@ -7,13 +7,13 @@ if(isset($_POST['submit']))
 	$mobile=$_POST['mobile'];
 	$email=$_POST['email'];
 	$password=$_POST['password'];
-	$otp = rand(0000,9999);
-	$insert= "INSERT INTO user (username,mobile,email,logitude,lattitude,password,otp,otp_verified,type,status) VALUES ('$name','$mobile','$email',0.1,0.1,
-	'$password','$otp','YES','USER',1)";
+	$otp = rand(1000,9999);
+	$insert= "INSERT INTO user (username,mobile,email,logitude,lattitude,password,otp,otp_verified,type,status,approved) VALUES ('$name','$mobile','$email',0.0,0.0,
+	'$password','$otp',0,'USER',1,1)";
 	mysqli_query($conn,$insert);
 	?>
 	<script>
-	alert('your message send successfully');
+	swal('your message send successfully');
 	</script>
 <?php	
 }

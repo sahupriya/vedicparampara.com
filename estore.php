@@ -51,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
   </div>
 </div>
 					 
-                    <a href="#" class="btn">Order Now</a>
+                    <a href="login.php?id=<?php echo $row["product_id"];?>" class="btn">Order Now</a>
                 </div>
             </div>
         </div>
