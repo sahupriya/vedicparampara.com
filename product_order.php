@@ -19,8 +19,8 @@ if(isset($_POST['submit']))
 }
 ?>
 
-<?php 
-		$sql = "SELECT `p`.*, `c`.`category_name`, `v`.`name` as 'vendor_name', `v`.`id` as 'vendor_id' FROM `product` `p` LEFT JOIN `category` `c` ON `c`.`category_id`=`p`.`category_id` LEFT JOIN `vender` `v` ON `v`.`id` =`p`.`vendorId` WHERE `p`.`product_id`=1 " ;
+<?php $id=$_GET['id'];
+		$sql = "SELECT `p`.*, `c`.`category_name`, `v`.`name` as 'vendor_name', `v`.`id` as 'vendor_id' FROM `product` `p` LEFT JOIN `category` `c` ON `c`.`category_id`=`p`.`category_id` LEFT JOIN `vender` `v` ON `v`.`id` =`p`.`vendorId` WHERE `p`.`product_id`=$id " ;
 
 		$result = mysqli_query($conn,$sql);
 		
@@ -98,7 +98,7 @@ color: #999;
                         <small><cite title="San Francisco, USA">
 						Price : <?php echo $row["price"]; ?> </cite></small>
                         <p>
-                            Gst No : <?php echo $row["gst_no"]; ?>
+                            Gst % : <?php echo $row["gst_no"]; ?> %
                             <br />
                             Delivery Charge : <?php echo $row["delivery_charge"]; ?>
                             <br />
@@ -201,7 +201,7 @@ color: #999;
   <label class="col-md-4 control-label">Address</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input  name="address" placeholder="Address" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -210,8 +210,13 @@ color: #999;
   <label class="col-md-4 control-label" >State</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
+<<<<<<< HEAD
   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
   <input name="state" placeholder="state" class="form-control"  type="text" required="">
+=======
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+  <input name="state" placeholder="state" class="form-control"  type="state" required="">
+>>>>>>> b8a0805d0d37962c5b9e97c7233eb65c399ca417
     </div>
   </div>
 </div>
@@ -222,7 +227,7 @@ color: #999;
   <label class="col-md-4 control-label" >City</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input name="city" placeholder="City" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -242,7 +247,11 @@ color: #999;
   <label class="col-md-4 control-label">Payment Mode</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
+<<<<<<< HEAD
         <span class="input-group-addon"><i class="fa fa-inr	"></i></span>
+=======
+        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+>>>>>>> b8a0805d0d37962c5b9e97c7233eb65c399ca417
 		<select id="payment_mode" name="payment" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>

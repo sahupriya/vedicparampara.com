@@ -1,18 +1,27 @@
 <?php 
 include 'header.php';
 include 'config.php';
-if($_GET){$id=$_GET['id'];}else{ }
+//if($_GET){$id=$_GET['id'];}else{ }
 
 
-if(isset($_SESSION['mobile'])){
-?>
-<script>window.location.href="product_order.php?id=$id";</script>
-<?php
+if(isset($_SESSION['mobile']) && $_GET['id']){
+	$id=$_GET['id'];
+echo '<script>window.location.href="product_order.php?id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['mandal_id']){
+	$id=$_GET['mandal_id'];
+echo '<script>window.location.href="mandal_booking.php?mandal_id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['ayojan_id']){
+	$id=$_GET['ayojan_id'];
+echo '<script>window.location.href="ayojan_booking.php?ayojan_id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['donation_id']){
+	$id=$_GET['donation_id'];
+echo '<script>window.location.href="donation_detail.php?donation_id='.$id.'";</script>';
 }
 if(isset($_POST['submit']))
 {
-	$email = $_POST['mobile'];
-$password= $_POST['password'];
+
+$email 		= $_POST['mobile'];
+$password	= $_POST['password'];
 $sql="SELECT * from user where mobile='".$email."' and password='".$password."' and otp_verified=1";
 $result = $conn->query($sql);
 // echo $sql;
@@ -20,8 +29,20 @@ $row=mysqli_num_rows($result);
 if ($row>0) {
 	$_SESSION["mobile"] = $email;
 	// var_dump($_SESSION);
-    // echo "successfully log in";
-	echo '<script>window.location.href="product_order.php?id='.$id.'";</script>';
+	//echo '<script>window.location.href="product_order.php?id='.$id.'";</script>';
+	if(isset($_SESSION['mobile']) && $_GET['id']){
+	$id=$_GET['id'];
+echo '<script>window.location.href="product_order.php?id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['mandal_id']){
+	$id=$_GET['mandal_id'];
+echo '<script>window.location.href="mandal_booking.php?mandal_id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['ayojan_id']){
+	$id=$_GET['ayojan_id'];
+echo '<script>window.location.href="ayojan_booking.php?ayojan_id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['donation_id']){
+	$id=$_GET['donation_id'];
+echo '<script>window.location.href="donation_detail.php?donation_id='.$id.'";</script>';
+}
 } else {
     echo "<span style='text-align:center; color:red;'>Invalid  mobile or password</span>";
 }
