@@ -29,7 +29,8 @@ td .image-responsive{
 <div class="page-content-wrap">
     <div class="row">
         <div class="col-md-12">
-            <form class="form-horizontal">
+            <h4 style="color: red;text-align: center;"><?php echo $this->session->flashdata('err_msg'); ?></h4>
+            <!--<form class="form-horizontal">-->
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"><strong>Paramars</strong> Request List</h3>
@@ -47,6 +48,9 @@ td .image-responsive{
                                 <tr>
                                     <th>S. No.</th>
                                     <th>User Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Place of Birth</th>
                                     <th>Question</th>
                                     <th>Preffered Timing</th>
                                     <th>Call Option</th>
@@ -66,6 +70,10 @@ td .image-responsive{
                                 <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $d->name; ?></td>
+                                     <td><?php echo $d->contact; ?></td>
+                                      <td><?php echo $d->email; ?></td>
+                                       <td><?php echo $d->place_birth; ?></td>
+                                       
                                     <td><?php echo $d->question; ?></td>
                                     <td><?php echo $d->preffered_timing; ?></td>
                                     <td><?php echo $d->call_option; ?></td>
@@ -78,10 +86,10 @@ td .image-responsive{
                                                 <select  class="form-control"  name="pandit_id"  id="pandit_id" required="required" >
                                                 <option value="">--Select Pandit--</option> 
                                                 <?php foreach($pandit as $obj ){ ?>
-                                                <option value="<?php echo $obj->user_id; ?>" <?php echo isset($post['pandit_id']) && $post['pandit_id'] == $obj->user_id ?  'selected="selected"' : ''; ?>><?php echo $obj->username; ?> ( <?php echo $obj->mobile; ?> ) </option>
+                                               <option value="<?php echo $obj->user_id; ?>" <?php echo isset($d->pandit_id) && $d->pandit_id == $obj->user_id ?  'selected="selected"' : ''; ?>><?php echo $obj->username; ?> ( <?php echo $obj->mobile; ?> ) </option>
                                                 <?php } ?> 
                                                 </select>
-                                                <input type="hidden" id="id" class="btn btn-primary pull-right" value="<?php echo $d->id; ?>">
+                                                <input type="hidden" id="id" name="id" class="btn btn-primary pull-right" value="<?php echo $d->id; ?>">
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="submit" id="submit" class="btn btn-primary pull-right" value="Submit">
@@ -98,7 +106,7 @@ td .image-responsive{
                     </div>
                 </div> <!-- END panel-body -->
             </div> <!-- END panel panel-default -->
-            </form>
+            <!--</form>-->
         </div> 
         
         <div class="col-md-12">
@@ -121,6 +129,9 @@ td .image-responsive{
                                 <tr>
                                     <th>S. No.</th>
                                     <th>User Name</th>
+                                     <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Place of Birth</th>
                                     <th>Req. Date</th>
                                     <th>Price</th>
                                     <th>provide Pandit</th>
@@ -137,6 +148,9 @@ td .image-responsive{
                                 <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $d->name; ?></td>
+                                     <td><?php echo $d->contact; ?></td>
+                                      <td><?php echo $d->email; ?></td>
+                                       <td><?php echo $d->place_birth; ?></td>
                                     <td><?php echo $d->date_time; ?></td>
                                     <td><?php echo $d->price; ?></td>
                                     <td>
@@ -148,10 +162,10 @@ td .image-responsive{
                                                 <select  class="form-control"  name="pandit_id"  id="pandit_id" required="required" >
                                                 <option value="">--Select Pandit--</option> 
                                                 <?php foreach($pandit as $obj ){ ?>
-                                                <option value="<?php echo $obj->user_id; ?>" <?php echo isset($post['pandit_id']) && $post['pandit_id'] == $obj->user_id ?  'selected="selected"' : ''; ?>><?php echo $obj->username; ?> ( <?php echo $obj->mobile; ?> ) </option>
+                                                <option value="<?php echo $obj->user_id; ?>" <?php echo isset($d->pandit_id) && $d->pandit_id == $obj->user_id ?  'selected="selected"' : ''; ?>><?php echo $obj->username; ?> ( <?php echo $obj->mobile; ?> ) </option>
                                                 <?php } ?> 
                                                 </select>
-                                                 <input type="hidden" id="id" class="btn btn-primary pull-right" value="<?php echo $d->id; ?>">
+                                                 <input type="hidden" id="id" name="id" class="btn btn-primary pull-right" value="<?php echo $d->id; ?>">
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="submit" id="submit" class="btn btn-primary pull-right" value="Submit">

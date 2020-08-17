@@ -43,7 +43,10 @@ td .image-responsive{
                             <thead>
                                 <tr>
                                     <th>S. No.</th>
-                                    <th>Donation user name</th>
+                                    <th>Name</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
                                     <th>Donation Cause</th>
                                     <th>Donation Amount</th>
                                     <th>Donation Mode</th>
@@ -62,7 +65,12 @@ td .image-responsive{
                                     <td><?php  echo $i; ?></td>
                                     
                                     <td><?php echo $d['userName']; ?></td>
-                                    <td><?php echo $d['donation_cause']; ?></td>
+                                    <td><?php echo $d['mobile']; ?></td>
+                                    <td><?php echo $d['email']; ?></td>
+                                     <td><?php echo $d['address']. ", ". $d['city'] ."( ". $d['pincode'] . " )"; ?></td>
+                                    <td><?php
+                                   echo  $do1= $this->db->where('donation_id',$d['cause'])->get('donation')->row()->donation_cause;
+                                    ?></td>
                                     <td><?php echo $d['amt']; ?></td>
                                     <td><?php echo $d['mode']; ?></td>
                                     <td><?php echo $d['entrydate']; ?></td>

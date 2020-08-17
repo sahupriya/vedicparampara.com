@@ -508,11 +508,41 @@ class Site extends CI_Controller
     }
     public function paramarspandit_submit()
     {
-        
+       $id=$this->input->post('id');
+        $pandit_id = array('pandit_id'=> $this->input->post('pandit_id'));
+        $q = $this->db->get('paramarsh');
+        if($q->num_rows() > 0)
+        {
+            $this->db->where('id',$id);
+             $this->db->update('paramarsh',$pandit_id);
+            $this->session->set_flashdata('err_msg', 'Paramarsh is Assigned Successfully');
+            redirect($this->controller."virtualservice_request"); 
+        }
+        else
+        {
+            $this->session->set_flashdata('err_msg', 'Paramarsh is not Assigned');
+            redirect($this->controller."virtualservice_request");
+        }  
     }
+    
+    
      public function kundalipandit_submit()
     {
-        
+         $id=$this->input->post('id');
+         $pandit_id = array('pandit_id'=> $this->input->post('pandit_id')); 
+        $q = $this->db->get('kundali');
+        if($q->num_rows() > 0)
+        {
+            $this->db->where('id',$id);
+             $this->db->update('kundali',$pandit_id);
+            $this->session->set_flashdata('err_msg', 'Kundali is Assigned Successfully');
+            redirect($this->controller."virtualservice_request"); 
+        }
+        else
+        {
+            $this->session->set_flashdata('err_msg', 'Kundali is not Assigned');
+            redirect($this->controller."virtualservice_request");
+        }    
     }
 	
 	
@@ -1646,6 +1676,28 @@ public function ayojan_submit()
             redirect($this->controller."ayojan");
         }
     }
+    
+    public function vertualservice_delete()
+    {
+        $auth_type = $this->session->userdata('auth_type');
+        $id = $this->input->get('q');
+        $q = $this->db->where('id',$id)->get('virtual_service');
+        if($q->num_rows() > 0)
+        {
+            $oldData = $q->row_array();
+            $this->db->where('id',$id)->delete('virtual_service');
+            unlink($oldData['image']);
+            $this->session->set_flashdata('err_msg', 'Virtual Service Deleted Successfully');
+            redirect($this->controller."virtualservice"); 
+        }
+        else
+        {
+            $this->session->set_flashdata('err_msg', 'Virtual Service No Found');
+            redirect($this->controller."virtualservice");
+        }
+    }
+    
+    
 
     public function product()
     {
@@ -1741,6 +1793,23 @@ public function ayojan_submit()
         } 
     }
     
+    public function update_about()
+    { 
+        $about = array('about'=> $this->input->post('about'));
+       $q = $this->db->get('about');
+        if($q->num_rows() > 0)
+        {
+             $this->db->update('about',$about);
+            $this->session->set_flashdata('err_msg', 'About Successfully Updated');
+            redirect($this->controller."about"); 
+        }
+        else
+        {
+            $this->session->set_flashdata('err_msg', 'About not Updated');
+            redirect($this->controller."about");
+        } 
+    }
+    
     public function update_privacy_submit()
     { 
         $privacy_policy = array('privacy_policy'=> $this->input->post('privacy_policy'));
@@ -1767,15 +1836,6 @@ public function ayojan_submit()
         {
             $this->db->where('booking_id',$id);
              $this->db->update('dailypandit_booking',$pandit_id);
-             
-             /////////////////////
-            /*  $this->db->where('user_id',$this->input->post('pandit_id'));
-            $mobile= $this->db->get('pandit')->row()->mobile;
-             $registration_data="kkkkkkkkkkkkkk"
-                $registration_data1 = array();
-                $registration_data1['data'] = json_encode($registration_data);
-              $login=$this->Notification->sendNotification('title' , '$body' , $registration_data1, 'pandit-'.$mobile); */
-              ///////////////////
             $this->session->set_flashdata('err_msg', 'Daily Pandit is Assigned Successfully');
             redirect($this->controller."dailypandit_booking"); 
         }
@@ -1869,6 +1929,25 @@ public function ayojan_submit()
         $this->load->view('terms',$do);
         $this->load->view('include/footer');
     }
+    
+    
+    public function about()
+    {
+        
+        $auth_type = $this->session->userdata('auth_type');
+        $about_id = $this->input->get('d');
+        $do['data'] = $this->db->where('id',$about_id)->get('about')->row_array();
+        $do['about'] = $this->db->get('about')->row();
+        $do['form'] = ($auth_type == 'admin')?1:0;
+        $do['list'] = ($auth_type == 'admin')?1:0;
+       
+        
+        $this->load->view('include/header');
+        $this->load->view('include/sidebar');
+        $this->load->view('about',$do);
+        $this->load->view('include/footer');
+    }
+    
     public function privacy_policy()
     {
         
@@ -1982,8 +2061,8 @@ public function ayojan_submit()
         $auth_type = $this->session->userdata('auth_type');
         $donationListing_id = $this->input->get('d');
         $do['data'] = $this->db->where('donationListing_id',$donationListing_id)->get('donationlisting')->row_array();
-        $do['donationlisting'] = $this->db->join('donation','donation.donation_id=donationlisting.cause')->get('donationlisting')->result_array();
-       // $do['donationlisting'] = $this->db->order_by('donationListing_id','DESC')->get('donationlisting')->result();
+        //$do['donationlisting'] = $this->db->join('donation','donation.donation_id=donationlisting.cause')->get('donationlisting')->result_array();
+        $do['donationlisting'] = $this->db->get('donationlisting')->result_array();
        //print_r($do1);exit();
         $do['form'] = ($auth_type == 'admin')?1:0;
         $do['list'] = ($auth_type == 'admin')?1:0;
@@ -2024,7 +2103,8 @@ public function ayojan_submit()
     
     public function virtualservice()
     {
-        
+        $v_id = $this->input->get('m');
+        $do['data'] = $this->db->where('id',$v_id)->get('virtual_service')->row_array();
         $auth_type = $this->session->userdata('auth_type');
         $virtual_id = $this->input->get('d');
         //$do['data'] = $this->db->where('virtual_id',$virtual_id)->get('virtualservice')->row_array();
