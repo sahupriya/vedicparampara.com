@@ -1,6 +1,7 @@
-<?php include 'header.php';?>
+
 <?php 
-include'config.php';
+
+/*
 if(isset($_POST['submit']))
 {
 	$name=$_POST['username'];
@@ -17,23 +18,21 @@ if(isset($_POST['submit']))
 	</script>
 <?php	
 }
+*/
 ?>
 
-<?php $id=$_GET['id'];
-		$sql = "SELECT `p`.*, `c`.`category_name`, `v`.`name` as 'vendor_name', `v`.`id` as 'vendor_id' FROM `product` `p` LEFT JOIN `category` `c` ON `c`.`category_id`=`p`.`category_id` LEFT JOIN `vender` `v` ON `v`.`id` =`p`.`vendorId` WHERE `p`.`product_id`=$id " ;
+<?php 
+ include 'header.php';
+include'config.php';
+$id=$_REQUEST['ayojan_id'];
 
-		$result = mysqli_query($conn,$sql);
-		
-		if (mysqli_num_rows($result) > 0) {$row=$result->fetch_assoc();}
-			?>
-		<style>
-		.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+		$sql = "Select * from ayojan where ayojan_id='$id'" ;
+		$result = mysqli_query($conn,$sql);	
+		// Numeric array
+$row = mysqli_fetch_assoc($result);
+//print_r($row); exit();
+		?>
 
-small {
-display: block;
-line-height: 1.428571429;
-color: #999;
-}</style>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -44,21 +43,15 @@ color: #999;
     height: 220px;"/>
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4><?php echo $row["name"]; ?></h4>
-                        <small><cite title="San Francisco, USA">
-						Price : <?php echo $row["price"]; ?> </cite></small>
-                        <p>
-                            Gst % : <?php echo $row["gst_no"]; ?> %
-                            <br />
-                            Delivery Charge : <?php echo $row["delivery_charge"]; ?>
-                            <br />
-                            Quentity : <?php echo $row["qty"]; ?><?php echo $row["qty_type"]; ?>
-						</p>
-                        <p><b>Description : </b><?php echo $row["description"]; ?></p>
-						<p><b>Total : </b><?php 
-						 $gst=$row["price"]*$row["gst_no"]/100;
-						echo $amount=$row["price"]+$gst+$row["delivery_charge"]; ?></p>
-						<p>1</p>
+                        <h4><?php echo $row["ayojan_name"]; ?></h4>
+						
+                        <p><b>Description : </b><?php if(!empty($row["description"])){ ?><?php echo $row["description"]; ?></p>
+						<?php  } else echo 'no data found'; ?>
+						<p><b>Price : </b> <?php echo $row["price"]; ?></p>
+						<p><b>Convenience Fee : </b> <?php echo $row["Convenience_Fee"]; ?></p>
+						<p><b>GST % : </b> <?php echo $row["GST"]; ?> %</p>
+						<p style="color:green;"><b>Total : </b> <?php  $g=$row["price"]*$row["GST"]/100; 
+						echo $g+$row["price"]+$row["Convenience_Fee"]; ?></p>
                     </div>
                 </div>
             </div>
@@ -69,7 +62,7 @@ color: #999;
 <div class="container">
 	
     <form class="well form-horizontal" action="confirm.php" method="post"  id="contact_form">
-	<?php 
+	<?php /*
 		$sql1 = "SELECT * from commission" ;
 		$result1 = mysqli_query($conn,$sql1);
 		if (mysqli_num_rows($result1) > 0) {
@@ -86,65 +79,82 @@ color: #999;
 		}
 		
 		date_default_timezone_set('Asia/Kolkata'); 
-		$d= date("Y-m-d h:i:sa"); 
+		$d= date("Y-m-d h:i:sa"); */
 	?>
 	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
-	<input type="hidden" name="vendorId" value="<?php echo $row["vendorId"]; ?>">
-	<input type="hidden" name="user_name" value="<?php echo $row2["username"]; ?>">
-	<input type="hidden" name="category_id" value="<?php echo $row["category_id"]; ?>">
-	<input type="hidden" name="category_name" value="<?php echo $row["category_name"]; ?>">
-	<input type="hidden" name="product_name" value="<?php echo $row["name"]; ?>">
-	<input type="hidden" name="product_id" value="<?php echo $row["product_id"]; ?>">
+	<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">
+	<input type="hidden" name="mandal_id" value="<?php echo $row["mandal_id"]; ?>">
 	<input type="hidden" name="latitude" id="latitude" value="0.0">
 	<input type="hidden" name="longitude" id="longitude" value="0.0">
-	<input type="hidden" name="status" id="status" value="0">
+	<input type="hidden" name="status" value="pending">
 	
-	
-	<input type="hidden" name="admin_amount" id="admin_amount" value="<?php echo $admin_amount=$amount*$commission/100; ?>">
-	<input type="hidden" name="amount" id="amount" value="<?php echo $amount-$admin_amount; ?>">
-	<input type="hidden" name="quantity" id="quantity" value="1">
-	<input type="hidden" name="entry_date" id="amount" value="<?php echo $d; ?>">
 	
 <fieldset>
-<legend><center><h2><b>Order Product</b></h2></center></legend><br>
+<legend><center><h2><b>Ayojan Booking</b></h2></center></legend><br>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="user_name" placeholder="Enter Name" class="form-control"  type="text" required="">
+    </div>
+  </div>
+</div>
 <div class="form-group">
   <label class="col-md-4 control-label">Address</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input  name="address" placeholder="Address" class="form-control"  type="text" required="">
+  <span class="input-group-addon">
+  <i class="fa fa-map-marker"></i>
+  </span>
+  <input  name="address" placeholder="Enter Address" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
 <div class="form-group">
-  <label class="col-md-4 control-label" >State</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input name="state" placeholder="state" class="form-control"  type="state" required="">
+  <label class="col-md-4 control-label">City</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon">
+  <i class="fa fa-map-marker"></i></span>
+  <input  name="city" placeholder="City" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
 
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >City</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input name="city" placeholder="City" class="form-control"  type="text" required="">
-    </div>
-  </div>
-</div>
 <!-- Text input-->
        
 <div class="form-group">
   <label class="col-md-4 control-label">Pin Code</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+        <span class="input-group-addon">
+		<i class="fa fa-map-marker"></i></span>
   <input name="pincode" placeholder="(639)" class="form-control" type="number" required="" >
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >date</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon">
+  <i class="glyphicon glyphicon-calendar"></i>
+  </span>
+  <input name="date" placeholder="Date" class="form-control"  type="state" required="">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Time</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+  <input name="time" placeholder="Time" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
@@ -153,7 +163,7 @@ color: #999;
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-		<select id="payment_mode" name="payment" class="form-control" style="height: 38px;" required="">
+		<select id="pay_type" name="pay_type" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
 		  <option value="online">Online</option>

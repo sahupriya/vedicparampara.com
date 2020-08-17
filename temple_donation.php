@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
             <div class="box">
                 <div class="box-icon">
-                    <img src="img/panditavtar.png" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
+                    <img src="img/donation_1.png" height="60px" width="60px" class="img-responsive" style="margin-left:0px;">
                 </div>
                 <div class="info">
                     <h4 class="text-center"><?php echo $row["donation_cause"] ?></h4>
@@ -46,7 +46,7 @@ if (mysqli_num_rows($result) > 0) {
   </div>
 </div>
                     
-                    <a href="#" class="btn">Donate</a>
+                    <a href="login.php?donation_id=<?php echo $row["donation_id"];?>" class="btn">Donate</a>
                 </div>
             </div>
         </div>

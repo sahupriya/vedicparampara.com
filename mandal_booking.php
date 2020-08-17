@@ -25,12 +25,14 @@ if(isset($_POST['submit']))
  include 'header.php';
 include'config.php';
 $id=$_REQUEST['mandal_id'];
+
 		$sql = "Select * from mandal where mandal_id='$id'" ;
 		$result = mysqli_query($conn,$sql);	
 		// Numeric array
 $row = mysqli_fetch_assoc($result);
 //print_r($row); exit();
 		?>
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -76,62 +78,79 @@ $row = mysqli_fetch_assoc($result);
 		$d= date("Y-m-d h:i:sa"); */
 	?>
 	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
-	<input type="hidden" name="vendorId" value="<?php echo $row["vendorId"]; ?>">
-	<input type="hidden" name="user_name" value="<?php echo $row2["username"]; ?>">
-	<input type="hidden" name="category_id" value="<?php echo $row["category_id"]; ?>">
-	<input type="hidden" name="category_name" value="<?php echo $row["category_name"]; ?>">
-	<input type="hidden" name="product_name" value="<?php echo $row["name"]; ?>">
-	<input type="hidden" name="product_id" value="<?php echo $row["product_id"]; ?>">
+	<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">
+	<input type="hidden" name="mandal_id" value="<?php echo $row["mandal_id"]; ?>">
 	<input type="hidden" name="latitude" id="latitude" value="0.0">
 	<input type="hidden" name="longitude" id="longitude" value="0.0">
-	<input type="hidden" name="status" id="status" value="0">
+	<input type="hidden" name="status" value="pending">
 	
-	
-	<input type="hidden" name="admin_amount" id="admin_amount" value="<?php echo $admin_amount=$amount*$commission/100; ?>">
-	<input type="hidden" name="amount" id="amount" value="<?php echo $amount-$admin_amount; ?>">
-	<input type="hidden" name="quantity" id="quantity" value="1">
-	<input type="hidden" name="entry_date" id="amount" value="<?php echo $d; ?>">
 	
 <fieldset>
-<legend><center><h2><b>Order Product</b></h2></center></legend><br>
+<legend><center><h2><b>Mandal Booking</b></h2></center></legend><br>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="user_name" placeholder="Enter Name" class="form-control"  type="text" required="">
+    </div>
+  </div>
+</div>
 <div class="form-group">
   <label class="col-md-4 control-label">Address</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="address" placeholder="Address" class="form-control"  type="text" required="">
+  <span class="input-group-addon">
+  <i class="fa fa-map-marker"></i>
+  </span>
+  <input  name="address" placeholder="Enter Address" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
 <div class="form-group">
-  <label class="col-md-4 control-label" >State</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-  <input name="state" placeholder="state" class="form-control"  type="state" required="">
+  <label class="col-md-4 control-label">City</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon">
+  <i class="fa fa-map-marker"></i></span>
+  <input  name="city" placeholder="City" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
 
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >City</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
-  <input name="city" placeholder="City" class="form-control"  type="text" required="">
-    </div>
-  </div>
-</div>
 <!-- Text input-->
        
 <div class="form-group">
   <label class="col-md-4 control-label">Pin Code</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+        <span class="input-group-addon">
+		<i class="fa fa-map-marker"></i></span>
   <input name="pincode" placeholder="(639)" class="form-control" type="number" required="" >
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >date</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon">
+  <i class="glyphicon glyphicon-calendar"></i>
+  </span>
+  <input name="date" placeholder="Date" class="form-control"  type="state" required="">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Time</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+  <input name="time" placeholder="Time" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
@@ -139,8 +158,8 @@ $row = mysqli_fetch_assoc($result);
   <label class="col-md-4 control-label">Payment Mode</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-		<select id="payment_mode" name="payment" class="form-control" style="height: 38px;" required="">
+        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+		<select id="pay_type" name="pay_type" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
 		  <option value="online">Online</option>
