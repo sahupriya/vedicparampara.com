@@ -181,13 +181,13 @@ color: #999;
             });
         }
     </script>
+	
+    <div id="dvMap" style="width: 100%; height: 300px"></div>
 	<?php
 		// $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng=48.283273,14.295041&sensor=false');
         // $output= json_decode($geocode);
 		// echo $output->results[0]->formatted_address;
 	?>
-    <div id="dvMap" style="width: 100%; height: 300px">
-    </div>
 
 <div class="input-group mb-2" align="center">
 <label class="col-md-4 control-label">Quantity</label>  
