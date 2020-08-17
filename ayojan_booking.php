@@ -29,10 +29,8 @@ $id=$_REQUEST['ayojan_id'];
 		$sql = "Select * from ayojan where ayojan_id='$id'" ;
 		$result = mysqli_query($conn,$sql);	
 		// Numeric array
-$row = mysqli_fetch_assoc($result);
-//print_r($row); exit();
+		while($row = mysqli_fetch_assoc($result)){
 		?>
-
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -58,7 +56,9 @@ $row = mysqli_fetch_assoc($result);
         </div>
     </div>
 </div>
-
+<?php
+		}
+?>
 <div class="container">
 	
     <form class="well form-horizontal" action="confirm.php" method="post"  id="contact_form">
