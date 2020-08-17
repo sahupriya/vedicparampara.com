@@ -49,7 +49,7 @@ if (mysqli_num_rows($result) > 0) {
   </div>
 </div>
                     
-                    <a href="#" class="btn">Book Now</a>
+                    <a href="login.php?mandal_id=<?php echo $row["mandal_id"];?>" class="btn">Book Now</a>
                 </div>
             </div>
         </div>
