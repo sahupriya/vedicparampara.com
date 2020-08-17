@@ -111,7 +111,7 @@ color: #999;
   <label class="col-md-4 control-label">Address</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input  name="address" placeholder="Address" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -120,7 +120,7 @@ color: #999;
   <label class="col-md-4 control-label" >State</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input name="state" placeholder="state" class="form-control"  type="state" required="">
     </div>
   </div>
@@ -132,7 +132,7 @@ color: #999;
   <label class="col-md-4 control-label" >City</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input name="city" placeholder="City" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -152,7 +152,7 @@ color: #999;
   <label class="col-md-4 control-label">Payment Mode</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
 		<select id="payment_mode" name="payment" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>

@@ -80,7 +80,7 @@ color: #999;
   <label class="col-md-4 control-label">Address</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input  name="address" placeholder="Address" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -91,7 +91,7 @@ color: #999;
   <label class="col-md-4 control-label" >City</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input name="city" placeholder="City" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -113,7 +113,7 @@ color: #999;
   <label class="col-md-4 control-label" >Mobile Number</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
   <input name="mobile" placeholder="Enter Mobile" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -124,7 +124,7 @@ color: #999;
   <label class="col-md-4 control-label" >Email</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   <input name="email" placeholder="Enter Email" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -135,7 +135,7 @@ color: #999;
   <label class="col-md-4 control-label" >Donation Amount</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <span class="input-group-addon"><i class="fa fa-money" aria-hidden="true"></i></span>
   <input name="amt" placeholder="Enter Amount" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -146,7 +146,7 @@ color: #999;
   <label class="col-md-4 control-label" >Note</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+  <span class="input-group-addon"><i class="fa fa-sticky-note"></i></span>
   <textarea name="note" placeholder="Enter Note..." class="form-control"  type="text" required=""></textarea>
     </div>
   </div>
@@ -155,7 +155,7 @@ color: #999;
   <label class="col-md-4 control-label">Payment Mode</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
 		<select id="payment_mode" name="mode" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="online">Online</option>
