@@ -1,27 +1,5 @@
 
 <?php 
-
-/*
-if(isset($_POST['submit']))
-{
-	$name=$_POST['username'];
-	$mobile=$_POST['mobile'];
-	$email=$_POST['email'];
-	$password=$_POST['password'];
-	$otp = rand(1000,9999);
-	$insert= "INSERT INTO user (username,mobile,email,logitude,lattitude,password,otp,otp_verified,type,status,approved) VALUES ('$name','$mobile','$email',0.0,0.0,
-	'$password','$otp',0,'USER',1,1)";
-	mysqli_query($conn,$insert);
-	?>
-	<script>
-	swal('your message send successfully');
-	</script>
-<?php	
-}
-*/
-?>
-
-<?php 
  include 'header.php';
 include'config.php';
 $id=$_REQUEST['mandal_id'];
@@ -58,7 +36,7 @@ $row = mysqli_fetch_assoc($result);
 <div class="container">
 	
     <form class="well form-horizontal" action="confirm.php" method="post"  id="contact_form">
-	<?php /*
+	<?php 
 		$sql1 = "SELECT * from commission" ;
 		$result1 = mysqli_query($conn,$sql1);
 		if (mysqli_num_rows($result1) > 0) {
@@ -75,7 +53,7 @@ $row = mysqli_fetch_assoc($result);
 		}
 		
 		date_default_timezone_set('Asia/Kolkata'); 
-		$d= date("Y-m-d h:i:sa"); */
+		$d= date("Y-m-d h:i:sa");
 	?>
 	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
 	<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">
