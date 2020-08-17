@@ -149,6 +149,7 @@ color: #999;
 	<!--<input type="hidden" name="latitude" id="latitude" value="0.0">
 	<input type="hidden" name="longitude" id="longitude" value="0.0">-->
 	<input type="hidden" name="status" id="status" value="0">
+	<input type="hidden" name="table" value="product_order">
 	
 	
 	<input type="hidden" name="admin_amount" id="admin_amount" value="<?php echo $admin_amount=$amount*$commission/100; ?>">
