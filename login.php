@@ -10,10 +10,10 @@ if(isset($_SESSION['mobile']) && $_GET['id']){
 echo '<script>window.location.href="product_order.php?id='.$id.'";</script>';
 }else if(isset($_SESSION['mobile']) && $_GET['mandal_id']){
 	$id=$_GET['mandal_id'];
-echo '<script>window.location.href="mandal_booking.php?id='.$id.'";</script>';
+echo '<script>window.location.href="mandal_booking.php?mandal_id='.$id.'";</script>';
 }else if(isset($_SESSION['mobile']) && $_GET['ayojan_id']){
 	$id=$_GET['ayojan_id'];
-echo '<script>window.location.href="ayojan_booking.php?id='.$id.'";</script>';
+echo '<script>window.location.href="ayojan_booking.php?ayojan_id='.$id.'";</script>';
 }
 if(isset($_POST['submit']))
 {
@@ -31,10 +31,10 @@ if ($row>0) {
 echo '<script>window.location.href="product_order.php?id='.$id.'";</script>';
 }else if(isset($_SESSION['mobile']) && $_GET['mandal_id']){
 	$id=$_GET['mandal_id'];
-echo '<script>window.location.href="mandal_booking.php?id='.$id.'";</script>';
+echo '<script>window.location.href="mandal_booking.php?mandal_id='.$id.'";</script>';
 }else if(isset($_SESSION['mobile']) && $_GET['ayojan_id']){
 	$id=$_GET['ayojan_id'];
-echo '<script>window.location.href="ayojan_booking.php?id='.$id.'";</script>';
+echo '<script>window.location.href="ayojan_booking.php?ayojan_id='.$id.'";</script>';
 }
 } else {
     echo "invalid  mobile or password" . $sql . "<br>" . $con->error;
