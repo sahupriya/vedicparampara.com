@@ -33,7 +33,57 @@ small {
 display: block;
 line-height: 1.428571429;
 color: #999;
-}</style>
+}
+
+.dec-btn {
+    border: none;
+    border-radius: 8px 0 0 8px;
+    background: #28a745;
+    color: #fff;
+    border-radius: 2px!important;
+    font-size: 23px;
+    height: 33px;
+    line-height: 15px;
+    padding: 0;
+    text-align: center!important;
+    vertical-align: baseline;
+    width: 27px;
+}
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0;   
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 36px;
+}
+.inc-btn {
+    border: none;
+    border-radius: 0 8px 8px 0;
+    background: #dc3545;
+    color: #fff;
+    border-radius: 2px!important;
+    font-size: 23px;
+    height: 33px;
+    line-height: 15px;
+    padding: 0;
+    text-align: center!important;
+    vertical-align: baseline;
+    width: 27px;
+}
+#number {
+    width: 50px;
+    flex: unset;
+}
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -59,6 +109,7 @@ color: #999;
 						 $gst=$row["price"]*$row["gst_no"]/100;
 						echo $amount=$row["price"]+$gst+$row["delivery_charge"]; ?></p>
 						<p>1</p>
+						
                     </div>
                 </div>
             </div>
@@ -86,7 +137,7 @@ color: #999;
 		}
 		
 		date_default_timezone_set('Asia/Kolkata'); 
-		$d= date("Y-m-d h:i:sa"); 
+		$d= date("Y-m-d h:i:s"); 
 	?>
 	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
 	<input type="hidden" name="vendorId" value="<?php echo $row["vendorId"]; ?>">
@@ -95,18 +146,57 @@ color: #999;
 	<input type="hidden" name="category_name" value="<?php echo $row["category_name"]; ?>">
 	<input type="hidden" name="product_name" value="<?php echo $row["name"]; ?>">
 	<input type="hidden" name="product_id" value="<?php echo $row["product_id"]; ?>">
-	<input type="hidden" name="latitude" id="latitude" value="0.0">
-	<input type="hidden" name="longitude" id="longitude" value="0.0">
+	<!--<input type="hidden" name="latitude" id="latitude" value="0.0">
+	<input type="hidden" name="longitude" id="longitude" value="0.0">-->
 	<input type="hidden" name="status" id="status" value="0">
 	
 	
 	<input type="hidden" name="admin_amount" id="admin_amount" value="<?php echo $admin_amount=$amount*$commission/100; ?>">
 	<input type="hidden" name="amount" id="amount" value="<?php echo $amount-$admin_amount; ?>">
-	<input type="hidden" name="quantity" id="quantity" value="1">
+	<!--<input type="hidden" name="quantity" id="quantity" value="1">-->
 	<input type="hidden" name="entry_date" id="amount" value="<?php echo $d; ?>">
 	
 <fieldset>
 <legend><center><h2><b>Order Product</b></h2></center></legend><br>
+
+<input type="hidden" name="latitude" id="clockin_lati1">
+<input type="hidden" name="longitude" id="clockin_long1">
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var mapOptions = {
+                center: new google.maps.LatLng(26.4499, 80.3319),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var infoWindow = new google.maps.InfoWindow();
+            var latlngbounds = new google.maps.LatLngBounds();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            google.maps.event.addListener(map, 'click', function (e) {
+				document.getElementById("clockin_lati1").value=e.latLng.lat();
+				document.getElementById("clockin_long1").value=e.latLng.lng();
+                // alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+            });
+        }
+    </script>
+	<?php
+		// $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng=48.283273,14.295041&sensor=false');
+        // $output= json_decode($geocode);
+		// echo $output->results[0]->formatted_address;
+	?>
+    <div id="dvMap" style="width: 100%; height: 300px">
+    </div>
+
+<div class="input-group mb-2" align="center">
+<label class="col-md-4 control-label">Quantity</label>  
+  <div class="col-md-4 inputGroupContainer">
+	<div class="value-button increase inc-btn" style="line-height: 34px;" id="decrease" onclick="decrease()" pid="<?php echo $row['product_id']; ?>" value="Decrease Value">-</div>
+		<input type="number" id="number"  name="quantity" pid="<?php echo $row['product_id']; ?>" value="1" size="2" max="<?php echo $row['qty']; ?>" class="form-control qun" style="float:initial;" />
+	<div class="value-button decrease dec-btn" id="increase" onclick="increase()" pid="<?php echo $row['product_id']; ?>" value="Increase Value">+</div>
+	</div>
+</div>
+
 <div class="form-group">
   <label class="col-md-4 control-label">Address</label>  
   <div class="col-md-4 inputGroupContainer">
@@ -121,7 +211,7 @@ color: #999;
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-  <input name="state" placeholder="state" class="form-control"  type="state" required="">
+  <input name="state" placeholder="state" class="form-control"  type="text" required="">
     </div>
   </div>
 </div>
@@ -152,7 +242,7 @@ color: #999;
   <label class="col-md-4 control-label">Payment Mode</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+        <span class="input-group-addon"><i class="fa fa-inr	"></i></span>
 		<select id="payment_mode" name="payment" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
@@ -180,3 +270,5 @@ color: #999;
 </div>
     </div><!-- /.container -->
 <?php include 'footer.php';?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/cart.js"></script>
