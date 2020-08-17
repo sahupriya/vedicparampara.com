@@ -210,13 +210,9 @@ color: #999;
   <label class="col-md-4 control-label" >State</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-<<<<<<< HEAD
   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
   <input name="state" placeholder="state" class="form-control"  type="text" required="">
-=======
-  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input name="state" placeholder="state" class="form-control"  type="state" required="">
->>>>>>> b8a0805d0d37962c5b9e97c7233eb65c399ca417
+
     </div>
   </div>
 </div>
@@ -247,11 +243,9 @@ color: #999;
   <label class="col-md-4 control-label">Payment Mode</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-<<<<<<< HEAD
-        <span class="input-group-addon"><i class="fa fa-inr	"></i></span>
-=======
+
         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
->>>>>>> b8a0805d0d37962c5b9e97c7233eb65c399ca417
+
 		<select id="payment_mode" name="payment" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
