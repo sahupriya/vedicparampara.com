@@ -61,6 +61,7 @@ $row = mysqli_fetch_assoc($result);
 	<input type="hidden" name="latitude" id="latitude" value="0.0">
 	<input type="hidden" name="longitude" id="longitude" value="0.0">
 	<input type="hidden" name="status" value="pending">
+	<input type="hidden" name="table" value="mandal_booked">
 	
 	
 <fieldset>
