@@ -1,6 +1,7 @@
-
 <?php 
-
+include 'header.php';
+include'config.php';
+date_default_timezone_set('Asia/Kolkata'); 
 /*
 if(isset($_POST['submit']))
 {
@@ -19,20 +20,14 @@ if(isset($_POST['submit']))
 <?php	
 }
 */
-?>
-
-<?php 
- include 'header.php';
-include'config.php';
+ 
 $id=$_REQUEST['ayojan_id'];
 
 		$sql = "Select * from ayojan where ayojan_id='$id'" ;
 		$result = mysqli_query($conn,$sql);	
 		// Numeric array
-$row = mysqli_fetch_assoc($result);
-//print_r($row); exit();
+		while($row = mysqli_fetch_assoc($result)){
 		?>
-
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -61,8 +56,8 @@ $row = mysqli_fetch_assoc($result);
 
 <div class="container">
 	
-    <form class="well form-horizontal" action="confirm.php" method="post"  id="contact_form">
-	<?php /*
+    <form class="well form-horizontal" action="confirm.php" method="post" id="contact_form">
+	<?php 
 		$sql1 = "SELECT * from commission" ;
 		$result1 = mysqli_query($conn,$sql1);
 		if (mysqli_num_rows($result1) > 0) {
@@ -71,27 +66,51 @@ $row = mysqli_fetch_assoc($result);
 		}
 		
 		$mobile=$_SESSION['mobile'];
+		$user_id='';
 		$sql2 = "SELECT * from user where mobile=$mobile" ;
 		$result2 = mysqli_query($conn,$sql2);
 		if (mysqli_num_rows($result2) > 0) {
-			$row2=$result2->fetch_assoc(); 
-		
+			while($row2=mysqli_fetch_assoc($result2)){
+				$user_id=$row2['user_id'];
+			}		
 		}
-		
-		date_default_timezone_set('Asia/Kolkata'); 
-		$d= date("Y-m-d h:i:sa"); */
+		$d= date("Y-m-d h:i:sa"); 
 	?>
-	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
-	<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">
-	<input type="hidden" name="mandal_id" value="<?php echo $row["mandal_id"]; ?>">
-	<input type="hidden" name="latitude" id="latitude" value="0.0">
-	<input type="hidden" name="longitude" id="longitude" value="0.0">
+	<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+	<!--<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">-->
+	<input type="hidden" name="mandal_id" value="<?php echo $row["ayojan_id"]; ?>">
+	<input type="hidden" name="amount" value="<?php  $g=$row["price"]*$row["GST"]/100; 
+						echo $g+$row["price"]+$row["Convenience_Fee"]; ?>">
 	<input type="hidden" name="status" value="pending">
+	<input type="hidden" name="table" value="bhavya_ayojan">
 	
 	
 <fieldset>
 <legend><center><h2><b>Ayojan Booking</b></h2></center></legend><br>
 
+<input type="hidden" name="latitude" id="clockin_lati1">
+<input type="hidden" name="longitude" id="clockin_long1">
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var mapOptions = {
+                center: new google.maps.LatLng(26.4499, 80.3319),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var infoWindow = new google.maps.InfoWindow();
+            var latlngbounds = new google.maps.LatLngBounds();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            google.maps.event.addListener(map, 'click', function (e) {
+				document.getElementById("clockin_lati1").value=e.latLng.lat();
+				document.getElementById("clockin_long1").value=e.latLng.lng();
+                // alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+            });
+        }
+    </script>
+	
+    <div id="dvMap" style="width: 100%; height: 300px"></div>
 <div class="form-group">
   <label class="col-md-4 control-label">Name</label>  
   <div class="col-md-4 inputGroupContainer">
@@ -163,7 +182,7 @@ $row = mysqli_fetch_assoc($result);
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-		<select id="pay_type" name="pay_type" class="form-control" style="height: 38px;" required="">
+		<select id="pay_type" name="payment" class="form-control" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
 		  <option value="online">Online</option>
@@ -188,5 +207,8 @@ $row = mysqli_fetch_assoc($result);
 </fieldset>
 </form>
 </div>
+<?php
+		}
+?>
     </div><!-- /.container -->
 <?php include 'footer.php';?>

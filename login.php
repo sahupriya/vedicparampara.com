@@ -1,6 +1,5 @@
 <?php 
-include 'header.php';?>
-<?php 
+include 'header.php';
 include 'config.php';
 //if($_GET){$id=$_GET['id'];}else{ }
 
@@ -20,10 +19,12 @@ echo '<script>window.location.href="donation_detail.php?donation_id='.$id.'";</s
 }
 if(isset($_POST['submit']))
 {
+
 $email 		= $_POST['mobile'];
 $password	= $_POST['password'];
 $sql="SELECT * from user where mobile='".$email."' and password='".$password."' and otp_verified=1";
 $result = $conn->query($sql);
+// echo $sql;
 $row=mysqli_num_rows($result);
 if ($row>0) {
 	$_SESSION["mobile"] = $email;
@@ -43,7 +44,7 @@ echo '<script>window.location.href="ayojan_booking.php?ayojan_id='.$id.'";</scri
 echo '<script>window.location.href="donation_detail.php?donation_id='.$id.'";</script>';
 }
 } else {
-    echo "invalid  mobile or password" . $sql . "<br>" . $con->error;
+    echo "<span style='text-align:center; color:red;'>Invalid  mobile or password</span>";
 }
 
 $conn->close();
