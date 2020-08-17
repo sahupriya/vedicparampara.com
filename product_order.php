@@ -48,7 +48,7 @@ color: #999;
                         <small><cite title="San Francisco, USA">
 						Price : <?php echo $row["price"]; ?> </cite></small>
                         <p>
-                            Gst No : <?php echo $row["gst_no"]; ?>
+                            Gst % : <?php echo $row["gst_no"]; ?> %
                             <br />
                             Delivery Charge : <?php echo $row["delivery_charge"]; ?>
                             <br />

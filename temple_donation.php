@@ -46,7 +46,7 @@ if (mysqli_num_rows($result) > 0) {
   </div>
 </div>
                     
-                    <a href="#" class="btn">Book Now</a>
+                    <a href="#" class="btn">Donate</a>
                 </div>
             </div>
         </div>

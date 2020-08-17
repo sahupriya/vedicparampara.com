@@ -48,8 +48,9 @@ if (mysqli_num_rows($result) > 0) {
     </div>
   </div>
 </div>
-                    
+     
                     <a href="mandal_booking.php?mandalid=<?php echo $row["mandal_id"];?>" class="btn">Book Now</a>
+
                 </div>
             </div>
         </div>
