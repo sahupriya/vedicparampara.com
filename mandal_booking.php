@@ -24,19 +24,13 @@ if(isset($_POST['submit']))
 <?php 
  include 'header.php';
 include'config.php';
-$id=$_REQUEST['mandalid'];
-		$sql = "Select * from mandal mandal_id='$id'" ;
-		$result = mysqli_query($conn,$sql);		
-		if(mysqli_num_rows($result>0))
-			?>
-		<style>
-		.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
-
-small {
-display: block;
-line-height: 1.428571429;
-color: #999;
-}</style>
+$id=$_REQUEST['mandal_id'];
+		$sql = "Select * from mandal where mandal_id='$id'" ;
+		$result = mysqli_query($conn,$sql);	
+		// Numeric array
+$row = mysqli_fetch_assoc($result);
+//print_r($row); exit();
+		?>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -48,8 +42,10 @@ color: #999;
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4><?php echo $row["mandali_name"]; ?></h4>
-                        <p><b>Description : </b><?php echo $row["description"]; ?></p>
 						
+                        <p><b>Description : </b><?php if(!empty($row["description"])){ ?><?php echo $row["description"]; ?></p>
+						<?php  } else echo 'no data found'; ?>
+						<p><b>Price : </b> <?php echo $row["price"]; ?></p>
                     </div>
                 </div>
             </div>
