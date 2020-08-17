@@ -14,6 +14,9 @@ echo '<script>window.location.href="mandal_booking.php?mandal_id='.$id.'";</scri
 }else if(isset($_SESSION['mobile']) && $_GET['ayojan_id']){
 	$id=$_GET['ayojan_id'];
 echo '<script>window.location.href="ayojan_booking.php?ayojan_id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['donation_id']){
+	$id=$_GET['donation_id'];
+echo '<script>window.location.href="donation_detail.php?donation_id='.$id.'";</script>';
 }
 if(isset($_POST['submit']))
 {
@@ -35,6 +38,9 @@ echo '<script>window.location.href="mandal_booking.php?mandal_id='.$id.'";</scri
 }else if(isset($_SESSION['mobile']) && $_GET['ayojan_id']){
 	$id=$_GET['ayojan_id'];
 echo '<script>window.location.href="ayojan_booking.php?ayojan_id='.$id.'";</script>';
+}else if(isset($_SESSION['mobile']) && $_GET['donation_id']){
+	$id=$_GET['donation_id'];
+echo '<script>window.location.href="donation_detail.php?donation_id='.$id.'";</script>';
 }
 } else {
     echo "invalid  mobile or password" . $sql . "<br>" . $con->error;

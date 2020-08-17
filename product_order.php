@@ -19,8 +19,8 @@ if(isset($_POST['submit']))
 }
 ?>
 
-<?php 
-		$sql = "SELECT `p`.*, `c`.`category_name`, `v`.`name` as 'vendor_name', `v`.`id` as 'vendor_id' FROM `product` `p` LEFT JOIN `category` `c` ON `c`.`category_id`=`p`.`category_id` LEFT JOIN `vender` `v` ON `v`.`id` =`p`.`vendorId` WHERE `p`.`product_id`=1 " ;
+<?php $id=$_GET['id'];
+		$sql = "SELECT `p`.*, `c`.`category_name`, `v`.`name` as 'vendor_name', `v`.`id` as 'vendor_id' FROM `product` `p` LEFT JOIN `category` `c` ON `c`.`category_id`=`p`.`category_id` LEFT JOIN `vender` `v` ON `v`.`id` =`p`.`vendorId` WHERE `p`.`product_id`=$id " ;
 
 		$result = mysqli_query($conn,$sql);
 		
