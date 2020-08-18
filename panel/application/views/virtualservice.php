@@ -52,8 +52,8 @@ td .image-responsive{
                                     <input type="hidden" name="id" value="<?=$data['id']?>">
                                     <select class="form-control" name="virtual_service" id="virtual_service" required="required">
                                             <option value="">--Select Service--</option> 
-											<option value="paramars">Paramars</option> 
-											<option value="kundali">Kundali Making</option>                                      
+											<option value="Paramars" <?php echo isset($data['virtual_service']) && $data['virtual_service'] == "Paramars" ?  'selected="selected"' : ''; ?>>Paramars</option> 
+											<option value="Kundali" <?php echo isset($data['virtual_service']) && $data['virtual_service'] == "Kundali" ?  'selected="selected"' : ''; ?>>Kundali Making</option>                                      
                                         </select>
                                 </div>                                
                             </div>
@@ -61,14 +61,14 @@ td .image-responsive{
                                 <label>Price</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-inr"></span></span>
-                                    <input type="text" name="price"  value="<?=$data['price']?>" class="form-control" placeholder='00'>
+                                    <input type="text" name="price"  value="<?php echo $data['price']; ?>" class="form-control" placeholder='00'>
                                 </div>                                
                             </div>
                             <div class="col-md-12 col-xs-12">
                                 <label>Description</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <textarea name="description"  class="form-control" ><?=$data['description']?></textarea>
+                                    <textarea name="description"  class="form-control" ><?=$data['description']; ?></textarea>
                                 </div>                                
                             </div>
                             
@@ -106,7 +106,7 @@ td .image-responsive{
                                     <th>Service</th>
                                     <th>Price</th>
                                     <th>Description</th>
-                                    <!--<th>Delete</th>-->
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -123,9 +123,11 @@ td .image-responsive{
                                     <td><?php echo $r->virtual_service; ?></td>
                                     <td><?php echo $r->price; ?></td>
                                     <td><?php echo $r->description; ?></td>
-                                   <!-- <td>
+                                   <td> 
+                                   <a href="<?=site_url("site/virtualservice")."?m=".$r->id; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                   
                                         <a href="#" onclick="open_msg('<?=site_url("site/vertualservice_delete")."?q=".$r->id; ?>');" class="btn btn-primary"><i class="fa fa-trash-o"></i></a>
-                                    </td>-->
+                                    </td>
                                 </tr>
                                 <?php                            
                                 }

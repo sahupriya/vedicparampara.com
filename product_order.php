@@ -95,21 +95,18 @@ color: #999;
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4><?php echo $row["name"]; ?></h4>
-                        <small><cite title="San Francisco, USA">
-						Price : <?php echo $row["price"]; ?> </cite></small>
+                        <p><b>Price : </b><?php echo $row["price"]; ?> Rs.</p>
                         <p>
                             Gst % : <?php echo $row["gst_no"]; ?> %
                             <br />
-                            Delivery Charge : <?php echo $row["delivery_charge"]; ?>
+                            Delivery Charge : <?php echo $row["delivery_charge"]; ?> Rs.
                             <br />
                             Quentity : <?php echo $row["qty"]; ?><?php echo $row["qty_type"]; ?>
 						</p>
                         <p><b>Description : </b><?php echo $row["description"]; ?></p>
-						<p><b>Total : </b><?php 
+						<p style="color:green;"><b>Total Price: </b><?php 
 						 $gst=$row["price"]*$row["gst_no"]/100;
-						echo $amount=$row["price"]+$gst+$row["delivery_charge"]; ?></p>
-						<p>1</p>
-						
+						echo $amount=$row["price"]+$gst+$row["delivery_charge"]; ?> Rs.</p>
                     </div>
                 </div>
             </div>
@@ -150,11 +147,8 @@ color: #999;
 	<input type="hidden" name="longitude" id="longitude" value="0.0">-->
 	<input type="hidden" name="status" id="status" value="0">
 	<input type="hidden" name="table" value="product_order">
-	
-	
 	<input type="hidden" name="admin_amount" id="admin_amount" value="<?php echo $admin_amount=$amount*$commission/100; ?>">
 	<input type="hidden" name="amount" id="amount" value="<?php echo $amount-$admin_amount; ?>">
-	<!--<input type="hidden" name="quantity" id="quantity" value="1">-->
 	<input type="hidden" name="entry_date" id="amount" value="<?php echo $d; ?>">
 	
 <fieldset>
@@ -211,7 +205,7 @@ color: #999;
   <label class="col-md-4 control-label" >State</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
   <input name="state" placeholder="state" class="form-control"  type="text" required="">
 
     </div>

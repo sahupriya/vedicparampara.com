@@ -1,28 +1,7 @@
 <?php 
 include 'header.php';
 include'config.php';
-date_default_timezone_set('Asia/Kolkata'); 
-/*
-if(isset($_POST['submit']))
-{
-	$name=$_POST['username'];
-	$mobile=$_POST['mobile'];
-	$email=$_POST['email'];
-	$password=$_POST['password'];
-	$otp = rand(1000,9999);
-	$insert= "INSERT INTO user (username,mobile,email,logitude,lattitude,password,otp,otp_verified,type,status,approved) VALUES ('$name','$mobile','$email',0.0,0.0,
-	'$password','$otp',0,'USER',1,1)";
-	mysqli_query($conn,$insert);
-	?>
-	<script>
-	swal('your message send successfully');
-	</script>
-<?php	
-}
-*/
- 
 $id=$_REQUEST['ayojan_id'];
-
 		$sql = "Select * from ayojan where ayojan_id='$id'" ;
 		$result = mysqli_query($conn,$sql);	
 		// Numeric array
@@ -42,11 +21,11 @@ $id=$_REQUEST['ayojan_id'];
 						
                         <p><b>Description : </b><?php if(!empty($row["description"])){ ?><?php echo $row["description"]; ?></p>
 						<?php  } else echo 'no data found'; ?>
-						<p><b>Price : </b> <?php echo $row["price"]; ?></p>
-						<p><b>Convenience Fee : </b> <?php echo $row["Convenience_Fee"]; ?></p>
+						<p><b>Price : </b> <?php echo $row["price"]; ?> Rs. </p>
+						<p><b>Convenience Fee : </b> <?php echo $row["Convenience_Fee"]; ?> Rs. </p>
 						<p><b>GST % : </b> <?php echo $row["GST"]; ?> %</p>
 						<p style="color:green;"><b>Total : </b> <?php  $g=$row["price"]*$row["GST"]/100; 
-						echo $g+$row["price"]+$row["Convenience_Fee"]; ?></p>
+						echo $g+$row["price"]+$row["Convenience_Fee"]; ?> Rs. </p>
                     </div>
                 </div>
             </div>
@@ -74,22 +53,23 @@ $id=$_REQUEST['ayojan_id'];
 				$user_id=$row2['user_id'];
 			}		
 		}
+		date_default_timezone_set('Asia/Kolkata'); 
 		$d= date("Y-m-d h:i:sa"); 
 	?>
 	<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-	<!--<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">-->
-	<input type="hidden" name="mandal_id" value="<?php echo $row["ayojan_id"]; ?>">
+	<input type="hidden" name="ayojan_name" value="<?php echo $row["ayojan_name"]; ?>">
+	<input type="hidden" name="ayojan_id" value="<?php echo $row["ayojan_id"]; ?>">
 	<input type="hidden" name="amount" value="<?php  $g=$row["price"]*$row["GST"]/100; 
 						echo $g+$row["price"]+$row["Convenience_Fee"]; ?>">
 	<input type="hidden" name="status" value="pending">
 	<input type="hidden" name="table" value="bhavya_ayojan">
-	
+	<input type="hidden" name="entry_date" id="entry_date" value="<?php echo $d; ?>">
 	
 <fieldset>
 <legend><center><h2><b>Ayojan Booking</b></h2></center></legend><br>
 
-<input type="hidden" name="latitude" id="clockin_lati1">
-<input type="hidden" name="longitude" id="clockin_long1">
+<input type="hidden" name="lattitude" id="clockin_lati1" value="0.0">
+<input type="hidden" name="longitude" id="clockin_long1" value="0.0">
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
@@ -161,7 +141,7 @@ $id=$_REQUEST['ayojan_id'];
   <span class="input-group-addon">
   <i class="glyphicon glyphicon-calendar"></i>
   </span>
-  <input name="date" placeholder="Date" class="form-control"  type="state" required="">
+  <input name="date" placeholder="Date" class="form-control"  type="date" required="">
     </div>
   </div>
 </div>
@@ -182,7 +162,7 @@ $id=$_REQUEST['ayojan_id'];
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-		<select id="pay_type" name="payment" class="form-control" required="">
+		<select id="pay_type" name="payment" class="form-control" required="" style="height: 38px;" >
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
 		  <option value="online">Online</option>
