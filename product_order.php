@@ -143,8 +143,8 @@ color: #999;
 	<input type="hidden" name="category_name" value="<?php echo $row["category_name"]; ?>">
 	<input type="hidden" name="product_name" value="<?php echo $row["name"]; ?>">
 	<input type="hidden" name="product_id" value="<?php echo $row["product_id"]; ?>">
-	<!--<input type="hidden" name="latitude" id="latitude" value="0.0">
-	<input type="hidden" name="longitude" id="longitude" value="0.0">-->
+	<input type="hidden" name="latitude" id="latitude" value="0.0">
+	<input type="hidden" name="longitude" id="longitude" value="0.0">
 	<input type="hidden" name="status" id="status" value="0">
 	<input type="hidden" name="table" value="product_order">
 	<input type="hidden" name="admin_amount" id="admin_amount" value="<?php echo $admin_amount=$amount*$commission/100; ?>">
@@ -153,36 +153,6 @@ color: #999;
 	
 <fieldset>
 <legend><center><h2><b>Order Product</b></h2></center></legend><br>
-
-<input type="hidden" name="latitude" id="clockin_lati1">
-<input type="hidden" name="longitude" id="clockin_long1">
-
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            var mapOptions = {
-                center: new google.maps.LatLng(26.4499, 80.3319),
-                zoom: 14,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var infoWindow = new google.maps.InfoWindow();
-            var latlngbounds = new google.maps.LatLngBounds();
-            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-            google.maps.event.addListener(map, 'click', function (e) {
-				document.getElementById("clockin_lati1").value=e.latLng.lat();
-				document.getElementById("clockin_long1").value=e.latLng.lng();
-                // alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
-            });
-        }
-    </script>
-	
-    <div id="dvMap" style="width: 100%; height: 300px"></div>
-	<?php
-		// $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng=48.283273,14.295041&sensor=false');
-        // $output= json_decode($geocode);
-		// echo $output->results[0]->formatted_address;
-	?>
-
 <div class="input-group mb-2" align="center">
 <label class="col-md-4 control-label">Quantity</label>  
   <div class="col-md-4 inputGroupContainer">
@@ -197,7 +167,13 @@ color: #999;
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input  name="address" placeholder="Address" class="form-control"  type="text" required="">
+  <div id="locationField">
+      <input name="address" id="autocomplete" required="" class="form-control"
+             placeholder="Enter your address"
+             onFocus="geolocate()"
+             type="text"/>
+    </div>
+  
     </div>
   </div>
 </div>
@@ -206,7 +182,7 @@ color: #999;
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input name="state" placeholder="state" class="form-control"  type="text" required="">
+  <input name="state" placeholder="state" class="form-control" id="administrative_area_level_1" type="text" required="">
 
     </div>
   </div>
@@ -219,7 +195,7 @@ color: #999;
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input name="city" placeholder="City" class="form-control"  type="text" required="">
+  <input name="city" placeholder="City" class="form-control" id="locality" type="text" required="">
     </div>
   </div>
 </div>
@@ -228,9 +204,9 @@ color: #999;
 <div class="form-group">
   <label class="col-md-4 control-label">Pin Code</label>  
     <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
+    <div class="input-group" id="address">
         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input name="pincode" placeholder="(639)" class="form-control" type="number" required="" >
+  <input name="pincode" placeholder="(639)" class="form-control" type="number" id="postal_code" required="" >
     </div>
   </div>
 </div>
@@ -249,7 +225,81 @@ color: #999;
     </div>
   </div>
 </div>
+	
+	
+<script>
+// This sample uses the Autocomplete widget to help the user select a
+// place, then it retrieves the address components associated with that
+// place, and then it populates the form fields with those details.
+// This sample requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script
+// src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+var placeSearch, autocomplete;
+
+var componentForm = {
+  //street_number: 'short_name',
+  //route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  //country: 'long_name',
+  postal_code: 'short_name'
+};
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search predictions to
+  // geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete'), {types: ['geocode']});
+
+  // Avoid paying for data that you don't need by restricting the set of
+  // place fields that are returned to just the address components.
+  autocomplete.setFields(['address_component']);
+
+  // When the user selects an address from the drop-down, populate the
+  // address fields in the form.
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details,
+  // and then fill-in the corresponding field on the form.
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var circle = new google.maps.Circle(
+          {center: geolocation, radius: position.coords.accuracy});
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmAXRrafA3bpxoKPBPqtFzNwpabkUsWrs&libraries=places&callback=initAutocomplete"
+        defer></script>
 <!-- Select Basic -->
 
 <!-- Success message -->
@@ -270,3 +320,5 @@ color: #999;
 <?php include 'footer.php';?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/cart.js"></script>
+
+
