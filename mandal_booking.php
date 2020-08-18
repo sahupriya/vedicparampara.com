@@ -40,15 +40,16 @@ $row = mysqli_fetch_assoc($result);
 		$sql1 = "SELECT * from commission" ;
 		$result1 = mysqli_query($conn,$sql1);
 		if (mysqli_num_rows($result1) > 0) {
-			$row1=$result1->fetch_assoc(); 
+		$row1 = mysqli_fetch_assoc($result1); 
 		$commission=$row1['commision'];
 		}
 		
-		$mobile=$_SESSION['mobile'];
+		if(isset($_SESSION['mobile'])){
+		 $mobile=$_SESSION['mobile'];
 		$sql2 = "SELECT * from user where mobile=$mobile" ;
 		$result2 = mysqli_query($conn,$sql2);
 		if (mysqli_num_rows($result2) > 0) {
-			$row2=$result2->fetch_assoc(); 
+		$row2 = mysqli_fetch_assoc($result2);
 		
 		}
 		
@@ -146,7 +147,15 @@ $row = mysqli_fetch_assoc($result);
     </div>
   </div>
 </div>
-
+		<?php }
+		else{
+			?>
+			<script>
+			window.location.href='index.php';
+			</script>
+			<?php
+		}
+?>
 <!-- Select Basic -->
 
 <!-- Success message -->
