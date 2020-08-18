@@ -143,8 +143,8 @@ color: #999;
 	<input type="hidden" name="category_name" value="<?php echo $row["category_name"]; ?>">
 	<input type="hidden" name="product_name" value="<?php echo $row["name"]; ?>">
 	<input type="hidden" name="product_id" value="<?php echo $row["product_id"]; ?>">
-	<input type="hidden" name="latitude" id="latitude" value="0.0">
-	<input type="hidden" name="longitude" id="longitude" value="0.0">
+	<input type="hidden" name="latitude" id="lattitude" >
+	<input type="hidden" name="longitude" id="longitude" >
 	<input type="hidden" name="status" id="status" value="0">
 	<input type="hidden" name="table" value="product_order">
 	<input type="hidden" name="admin_amount" id="admin_amount" value="<?php echo $admin_amount=$amount*$commission/100; ?>">
@@ -291,6 +291,8 @@ function geolocate() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+	  document.getElementById('lattitude').value = position.coords.latitude;
+	  document.getElementById('longitude').value = position.coords.longitude;
       var circle = new google.maps.Circle(
           {center: geolocation, radius: position.coords.accuracy});
       autocomplete.setBounds(circle.getBounds());

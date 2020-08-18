@@ -59,8 +59,8 @@ $row = mysqli_fetch_assoc($result);
 	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
 	<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">
 	<input type="hidden" name="mandal_id" value="<?php echo $row["mandal_id"]; ?>">
-	<input type="hidden" name="lattitude" id="lattitude" value="0.0">
-	<input type="hidden" name="longitude" id="longitude" value="0.0">
+	<input type="hidden" name="lattitude" id="lattitude" >
+	<input type="hidden" name="longitude" id="longitude" >
 	<input type="hidden" name="status" value="pending">
 	<input type="hidden" name="table" value="mandal_booking">
 	<input type="hidden" name="entry_date" id="entry_date" value="<?php echo $d; ?>">
@@ -184,6 +184,8 @@ function geolocate() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+	  document.getElementById('lattitude').value = position.coords.latitude;
+	  document.getElementById('longitude').value = position.coords.longitude;
       var circle = new google.maps.Circle(
           {center: geolocation, radius: position.coords.accuracy});
       autocomplete.setBounds(circle.getBounds());
@@ -212,7 +214,7 @@ function geolocate() {
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-  <input name="time" placeholder="Time" class="form-control"  type="text" required="">
+  <input name="time" placeholder="Time" class="form-control"  type="time" required="">
     </div>
   </div>
 </div>

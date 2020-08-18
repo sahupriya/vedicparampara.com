@@ -68,8 +68,9 @@ color: #999;
 		$d= date("Y-m-d h:i:s"); 
 	?>
 	<input type="hidden" name="userId" value="<?php echo $row2["user_id"]; ?>">
-	<input type="hidden" name="lattitude" id="latitude" value="0.0">
-	<input type="hidden" name="longitude" id="longitude" value="0.0">
+	<input type="hidden" name="lattitude" id="lattitude" >
+	<input type="hidden" name="longitude" id="longitude" >
+
 	<input type="hidden" name="cause" id="cause" value="<?php echo $row["donation_id"]; ?>">
 	<input type="hidden" name="discription" id="discription" value="<?php echo $row["donation_discription"]; ?>">
 	<input type="hidden" name="status" id="status" value="1">
@@ -191,6 +192,8 @@ function geolocate() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+	  document.getElementById('lattitude').value = position.coords.latitude;
+	  document.getElementById('longitude').value = position.coords.longitude;
       var circle = new google.maps.Circle(
           {center: geolocation, radius: position.coords.accuracy});
       autocomplete.setBounds(circle.getBounds());
