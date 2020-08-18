@@ -40,15 +40,16 @@ $row = mysqli_fetch_assoc($result);
 		$sql1 = "SELECT * from commission" ;
 		$result1 = mysqli_query($conn,$sql1);
 		if (mysqli_num_rows($result1) > 0) {
-			$row1=$result1->fetch_assoc(); 
+		$row1 = mysqli_fetch_assoc($result1); 
 		$commission=$row1['commision'];
 		}
 		
-		$mobile=$_SESSION['mobile'];
+		if(isset($_SESSION['mobile'])){
+		 $mobile=$_SESSION['mobile'];
 		$sql2 = "SELECT * from user where mobile=$mobile" ;
 		$result2 = mysqli_query($conn,$sql2);
 		if (mysqli_num_rows($result2) > 0) {
-			$row2=$result2->fetch_assoc(); 
+		$row2 = mysqli_fetch_assoc($result2);
 		
 		}
 		
@@ -58,10 +59,12 @@ $row = mysqli_fetch_assoc($result);
 	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
 	<input type="hidden" name="mandali_name" value="<?php echo $row["mandali_name"]; ?>">
 	<input type="hidden" name="mandal_id" value="<?php echo $row["mandal_id"]; ?>">
-	<input type="hidden" name="latitude" id="latitude" value="0.0">
+	<input type="hidden" name="lattitude" id="lattitude" value="0.0">
 	<input type="hidden" name="longitude" id="longitude" value="0.0">
 	<input type="hidden" name="status" value="pending">
-	<input type="hidden" name="table" value="mandal_booked">
+	<input type="hidden" name="table" value="mandal_booking">
+	<input type="hidden" name="entry_date" id="entry_date" value="<?php echo $d; ?>">
+	<input type="hidden" name="amount" value="<?php echo $g=$row["price"];?>">
 	
 	
 <fieldset>
@@ -138,7 +141,7 @@ $row = mysqli_fetch_assoc($result);
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-		<select id="pay_type" name="pay_type" class="form-control" style="height: 38px;" required="">
+		<select id="pay_type" name="payment" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="cash">Cash</option>
 		  <option value="online">Online</option>
@@ -146,7 +149,15 @@ $row = mysqli_fetch_assoc($result);
     </div>
   </div>
 </div>
-
+		<?php }
+		else{
+			?>
+			<script>
+			window.location.href='index.php';
+			</script>
+			<?php
+		}
+?>
 <!-- Select Basic -->
 
 <!-- Success message -->
