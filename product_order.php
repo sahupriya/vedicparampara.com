@@ -206,7 +206,7 @@ color: #999;
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group" id="address">
         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-  <input name="pincode" placeholder="(639)" class="form-control" type="number" id="postal_code" required="" >
+  <input name="pincode" placeholder="Enter pin Code" class="form-control" type="number" id="postal_code" required="" >
     </div>
   </div>
 </div>
