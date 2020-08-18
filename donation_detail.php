@@ -54,18 +54,30 @@ color: #999;
 <div class="container">
 	
     <form class="well form-horizontal" action="confirm.php" method="post"  id="contact_form">
-	
-	<input type="hidden" name="user_id" value="<?php echo $row2["user_id"]; ?>">
-	<input type="hidden" name="user_name" value="<?php echo $row2["username"]; ?>">
-	<input type="hidden" name="product_name" value="<?php echo $row["name"]; ?>">
-	<input type="hidden" name="product_id" value="<?php echo $row["product_id"]; ?>">
-	<input type="hidden" name="latitude" id="latitude" value="0.0">
+	<?php 
+		
+		$mobile=$_SESSION['mobile'];
+		$sql2 = "SELECT * from user where mobile=$mobile" ;
+		$result2 = mysqli_query($conn,$sql2);
+		if (mysqli_num_rows($result2) > 0) {
+			$row2=$result2->fetch_assoc(); 
+		
+		}
+		
+		date_default_timezone_set('Asia/Kolkata'); 
+		$d= date("Y-m-d h:i:s"); 
+	?>
+	<input type="hidden" name="userId" value="<?php echo $row2["user_id"]; ?>">
+	<input type="hidden" name="lattitude" id="latitude" value="0.0">
 	<input type="hidden" name="longitude" id="longitude" value="0.0">
-	<input type="hidden" name="status" id="status" value="0">
-	<input type="hidden" name="entry_date" id="amount" value="<?php echo $d; ?>">
-	
+	<input type="hidden" name="cause" id="cause" value="<?php echo $row["donation_id"]; ?>">
+	<input type="hidden" name="discription" id="discription" value="<?php echo $row["donation_discription"]; ?>">
+	<input type="hidden" name="status" id="status" value="1">
+	<input type="hidden" name="entrydate" id="entry_date" value="<?php echo $d; ?>">
+	<input type="hidden" name="table" value="donation_detail">
 <fieldset>
 <legend><center><h2><b>Donation Form</b></h2></center></legend><br>
+
 <div class="form-group">
   <label class="col-md-4 control-label">Name</label>  
   <div class="col-md-4 inputGroupContainer">
@@ -156,7 +168,7 @@ color: #999;
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-		<select id="payment_mode" name="mode" class="form-control" style="height: 38px;" required="">
+		<select id="payment" name="payment" class="form-control" style="height: 38px;" required="">
 		 <option value="">---Select Payment Mode---</option>
 		  <option value="online">Online</option>
 		</select>
